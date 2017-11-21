@@ -5,9 +5,9 @@ Django settings for django_get_started project.
 
 from os import path
 import os
-mysqlconnstr = os.environ['MYSQLCONNSTR_localdb']
-mysqlconnlst = mysqlconnstr.split(';')
-mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
+#mysqlconnstr = os.environ['MYSQLCONNSTR_localdb']
+#mysqlconnlst = mysqlconnstr.split(';')
+#mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
 
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 
@@ -20,6 +20,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = {'*'}
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -30,6 +31,17 @@ DATABASES = {
         'PORT': mysqlconndict['Data Source'].split(':')[1],
     }
 }
+'''
+DATABASES = {
+    'default':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR,"db.slqlite3"),
+    }
+}
+
+
+
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
