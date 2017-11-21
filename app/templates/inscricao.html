@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+{%load static%}
+
+<script>
+
+function MudarResultado() {
+
+    var display = document.getElementById('aparecer').style.display;
+    
+
+    if(display == "none"){
+
+       
+        document.getElementById('aparecer').style.display = 'block';
+        document.getElementById('sumir').style.display = 'none';
+        
+ 
+    }
+}
+
+</script>
+  <img src="{% static '..\static\vestibular2018.png' %}" style="width:100%">
+
+</div>
+<br/>
+<br/>
+<div id = "sumir" class="display:block">  
+    <h1 id= "principal2" style="font-family: 'Segoe UI'"><b>INSCRIÇÕES</b></h1>
+    <div style="text-align: center">
+            <div><br/>
+                <h3>Realize sua inscrição para ter acesso a Prova Online de Admissão!</h3>
+            </div><br/>
+            <br/>    
+            <form method="post" action="#">
+                <input type="text" id="idnome" name="Nome" placeholder="Informe seu nome" style="padding: 0 80px" required/><br/><br/>
+                <input type="text" id="idemail" name="email" placeholder="Informe seu email" style="padding: 0 80px" required/><br/><br/>
+                <input type="text" id="idtelefone" name="telefone" placeholder="Informe seu telefone" style="padding: 0 80px" required/><br/><br/>
+                <input type="text" id="idra" name="ra" placeholder="Informe seu ra" style="padding: 0 80px" required/><br/><br/>
+                
+                <div>
+                    <select style="border: 1px solid black; border-radius: 2px" required>
+                        <option value="0">Selecione um curso</option>
+                        <option value='#'>ADMINISTRAÇÃO</option>
+                        <option value='#'>ANÁLISE E DESENVOLVIMENTO DE SISTEMAS</option>
+                        <option value='#'>BANCO DE DADOS</option>
+                        <option value='#'>GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
+                        <option value='#'>JOGOS DIGITAIS</option>
+                        <option value='#'>PROCESSOS GERENCIAIS</option>
+                        <option value='#'>PRODUÇÃO MULTIMÍDIA</option>
+                        <option value='#'>REDES DE COMPUTADORES</option>
+                        <option value='#'>SISTEMAS DE INFORMAÇÃO</option>
+                    </select>
+                </div><br/>
+
+                <button button type="button" onclick="MudarResultado()" style="background: none; border: none"><img id="inscricao" src="{% static '..\static\botao.png' %}"/>
+                
+                <br/>
+                <br/>
+            </form>
+            
+            </div>
+            
+        </div>
+
+        <div id = "aparecer" style= "display:none">
+        <h1 id= "principal2" style="font-family: 'Segoe UI' margin-top= 100px"><b>Prova Online de Admissão</b></h1>
+        
+                <div style = "margin-left:50px">
+                <h4>Questao 1</h4>
+                <br>
+                <p><b>Ser ou não ser — eis a questão.<br>
+                        Morrer — dormir — Dormir! Talvez sonhar. Aí está o obstáculo!<br>
+                        Os sonhos que hão de vir no sono da morte<br>
+                        Quando tivermos escapado ao tumulto vital<br>
+                        Nos obrigam a hesitar: e é essa a reflexao<br>
+                        Que dá à desventura uma vida tão longa.<br><br>
+                        SHAKESPEARE, W. Hamlet. Porto Alegre: L&PM, 2007.</p><br></b>
+                        Este solióquio pode ser considerado um precursor<br>
+                        existencialismo ao enfatizar a tensão entre<br>
+                        água é ineficaz porque a<br><br> 
+                        <form action="">
+                                A- <input type="radio" name="1-multipla" value="1-A"> consciência de si e angústia humana.<br>
+                                B- <input type="radio" name="1-multipla" value="1-B"> inevitabilidade do destino e incerteza moral<br>
+                                C- <input type="radio" name="1-multipla" value="1-C"> tragicidade da personagem e ordem do mundo<br>
+                                D- <input type="radio" name="1-multipla" value="1-D"> racionalidade argumentativa e loucura iminente.<br>
+                                E- <input type="radio" name="1-multipla" value="1-E"> dependência paterna e impossibilidade de ação.<br>
+                        </form>
+            </div><br/>
+                        <div style = "margin-left:50px">
+                        <h4>Questao 2</h4>
+                        <br>
+                        <p><b>Em sua formulação, o spray de pimenta contém<br>
+                                porcentagens variadas de oleorresina de Capsicum,<br>
+                                cujo princípio ativo é a capsaicina, e um solvente<br>
+                                (um álcool como etanol ou isopropanol). Em contato<br>
+                                com os olhos, pele ou vias respiratórias, a capsaicina<br>
+                                causa em efeito inflamatório que gera uma sensação de<br>
+                                dor e ardor, levando à cegueira temporária. O processo<br>
+                                é desencadeado pela liberação de neuropeptídios das<br>
+                                terminações nervosas.<br><br>
+                                Como funciona o gás de pimenta. Disponível em: http://pessoas.hsw.uol.com.br.<br>
+                                 Acesso em: 1 mar. 2012 (adaptado).<br><br> </b>
+
+                                 Quando uma pessoa é atingida com o spray de pimenta<br>
+                                 nos olhos ou na pele, a lavagem da região atingida com<br>
+                                 água é ineficaz porque a<br><br>
+        
+                                <form action="">
+                                    A- <input type="radio" name="2-multipla" value="2-A"> reação entre etanol e água libera calor, intensificando o ardor<br>
+                                    B- <input type="radio" name="2-multipla" value="2-B"> solubilidade do princípio ativo em água é muito baixa, dificultando a sua remoção.<br>
+                                    C- <input type="radio" name="2-multipla" value="2-C"> permeabilidade da água na pele é muito baixa, dificultando a sua remoção.<br>
+                                    D- <input type="radio" name="2-multipla" value="2-D"> racionalidade argumentativa e loucura iminente.<br>
+                                    E- <input type="radio" name="2-multipla" value="2-E"> dependência paterna e impossibilidade de ação.<br>
+                                </form>
+                    </div><br/>
+                <div style = "margin-left:50px">
+                <h4>Questao 3</h4>
+                <br>
+                <p><b>Durante a primeira fase do projeto de uma usina de<br>
+                    geração de energia elétrica, os engenheiros da equipe<br>
+                    de avaliação de impactos ambientais procuram saber se<br>
+                    esse projeto está de acordo com as normas ambientais.<br>
+                    A nova planta estará localizada à beira de um rio, cuja<br>
+                    temperatura média da água é de 25 °C, e usará a sua<br>
+                    água somente para refrigeração. O projeto pretende que<br>
+                    a usina opere com 1,0 MW de potência elétrica e, em<br>
+                    razão de restrições técnicas, o dobro dessa potência será<br>
+                    dissipada por seu sistema de arrefecimento, na forma de<br>
+                    calor. Para atender a resolução número 430, de 13 de<br>
+                    maio de 2011, do Conselho Nacional do Meio Ambiente,<br>
+                    com uma ampla margem de segurança, os engenheiros<br>
+                    determinaram que a água só poderá ser devolvida ao rio<br>
+                    com um aumento de temperatura de, no máximo, 3 °C<br>
+                    em relação à temperatura da água do rio captada pelo<br>
+                    sistema de arrefecimento. considere o calor especifico da<br>
+                    água igual a 4 kJ/(kg °C).<br><br> </b>
+                    Para atender essa determinação, o valor mínimo do fluxo<br>
+                    de água, em kg/s, para a refrigeração da usina deve ser<br>
+                    mais próximo de<br><br>
+         
+                    
+
+                        <form action="">
+                            A- <input type="radio" name="3-multipla" value="3-A"> 42.<br>
+                            B- <input type="radio" name="3-multipla" value="3-B"> 84.<br>
+                            C- <input type="radio" name="3-multipla" value="3-C"> 167.<br>
+                            D- <input type="radio" name="3-multipla" value="3-D"> 250.<br>
+                            E- <input type="radio" name="3-multipla" value="3-E"> 500.<br>
+                        </form>
+            </div><br/> 
+            <div style = "margin-left:50px">
+                <h4>Questao 2</h4>
+                <br>
+                <p><b>Um vendedor de assinaturas de TV a cabo teve, <br>
+                    nos 7 primeiros meses do ano, uma média mensal de 84 assinaturas<br>
+                     vendidas. Devido a uma reestruturação da empresa, foi exigido que <br>
+                     todos os vendedores tivessem, ao final do ano, uma média mensal de 99<br>
+                      assinaturas vendidas. Diante disso, o vendedor se viu forçado<br>
+                       a aumentar sua média mensal de vendas nos 5 meses restantes do ano.<br><br> </b>
+                    Qual deverá ser a média mensal de vendas do vendedor,<br>
+                     nos próximos 5 meses, para que ele possa cumprir a exigência<br>
+                      da sua empresa? <br><br> 
+
+                        <form action="">
+                            A- <input type="radio" name="4-multipla" value="4-A"> 91.<br>
+                            B- <input type="radio" name="4-multipla" value="4-B"> 105.<br>
+                            C- <input type="radio" name="4-multipla" value="4-C"> 114.<br>
+                            D- <input type="radio" name="4-multipla" value="4-D"> 118.<br>
+                            E- <input type="radio" name="4-multipla" value="4-E"> 120.<br>
+                        </form>
+            </div><br/>   
+            <div style = "margin-left:50px">
+                <h4>Questao 2</h4>
+                <br>
+                <p><b>Em uma empresa de móveis, um cliente encomenda<br>
+                    um guarda-roupa nas dimensões 220 cm de altura, 120 cm<br>
+                    de largura e 50 cm de profundidade. Alguns dias depois, o<br>
+                    projetista, com o desenho elaborado na escala 1 : 8, entra<br>
+                    em contato com o cliente para fazer sua apresentação.<br>
+                    No momento da impressão, o profissional percebe que<br>
+                    o desenho não caberia na folha de papel que costumava<br>
+                    usar. Para resolver o problema, configurou a impressora<br>
+                    para que a figura fosse reduzida em 20%.<br><br> </b>
+                    A altura, a largura e a profundidade do desenho impresso<br>
+                    para a apresentação serão, respectivamente,<br>
+                    A 22,00 cm, 12,00 cm <br><br> 
+
+                        <form action="">
+                            A- <input type="radio" name="2-multipla" value="2-A"> reação entre etanol e água libera calor, intensificando o ardor<br>
+                            B- <input type="radio" name="2-multipla" value="2-B"> solubilidade do princípio ativo em água é muito baixa, dificultando a sua remoção.<br>
+                            C- <input type="radio" name="2-multipla" value="2-C"> permeabilidade da água na pele é muito baixa, dificultando a sua remoção.<br>
+                            D- <input type="radio" name="2-multipla" value="2-D"> racionalidade argumentativa e loucura iminente.<br>
+                            E- <input type="radio" name="2-multipla" value="2-E"> dependência paterna e impossibilidade de ação.<br>
+                        </form><br><br><br><br>
+                    <button type = "submit" value = "Finalizar" href = "index.html" style = "background: rgb(77, 65, 65);border-radius: 20px;color:white;font-size:40px;">Finalizar Teste</button>    
+            </div><br/>
+                
+        </div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div align = "center" >
+
+    <br/>
+
+<h1>Formulario de Contato<h1>
+    
+    <br/>
+
+<form method="post" action="blank.php">
+
+    <label for="assunto">Assunto</label>
+    <input type="text" id="idassunto" name="assunto"/><br/><br/>
+    <label for="Nome">Nome</label>
+    <input type="text" id="idnome" name="Nome"/><br/><br/>
+    <label for="Email">E-mail</label>
+    <input type="text" id="idemail" name="email"/><br/><br/>
+    <label for="Telefone">Telefone</label>
+    <input type="text" id="idtelefone" name="telefone"/><br/><br/>
+    <label for="Mensagem">Mensagem</label>
+    <textarea placeholder="Digite sua mensagem aqui!"></textarea><br/><br/>
+
+    <input type="submit" value="Enviar" width="300px" height="200px"/>
+    <input type="reset" value="Limpar" width="300px"  height="200px"/>
+
+    <br/>
+    <br/>
+</form>
+
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+{% endblock %}

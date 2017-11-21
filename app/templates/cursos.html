@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+{%load static%}
+<br/>
+<img src="{% static '..\static\banner.png' %}" style="width:100%">
+<br/>
+<br/>
+<h1 id= "principal"><b>CURSOS</b></h1>
+<br/>
+
+<div>
+	<a href = "#"><img id = "card1" src = "{% static '..\static\adm.jpg' %}"/></a>
+	<a href = "#"><img id = "card1" src = "{% static '..\static\ads.jpg' %}"/></a>
+	<a href = "#"><img id = "card1" src = "{% static '..\static\rdc.jpg' %}"/></a>
+	<a href = "#"><img id = "card1" src = "{% static '..\static\si.jpg' %}"/></a>
+</div>
+<br/><br/><br/>
+
+
+<h1 id= "principal2"><b>MBA e Tecnicos</b></h1><br>
+<a href = "#"><h3 id= "evento"><b>EM BREVE</b></h3></a><br><br>
+<br/>
+<br/>
+<br/>
+<br/>
+
+{% endblock %}
