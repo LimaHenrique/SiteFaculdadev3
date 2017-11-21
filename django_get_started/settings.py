@@ -11,8 +11,6 @@ mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
 
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 
-PROJECT_DIR = os.path.dirname(__file__)
-
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
 
 DEBUG = True
