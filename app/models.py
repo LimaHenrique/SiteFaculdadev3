@@ -53,7 +53,7 @@ class Usuario(AbstractBaseUser):
 
 class Curso(models.Model):
       sigla = models.CharField(max_length=5)
-      nome = models.CharField(unique=True)                  
+      nome = models.CharField(unique=True,max_length=200)                  
 
 class GradeCurricular(models.Model):
       ano = models.Field
@@ -184,7 +184,7 @@ class Resposta(models.Model):
 
       )
       data_avaliacao = models.DateField()
-      nota = models.DecimalField(decimal_places=4,max_digits=2)
+      nota = models.DecimalField(4,2)
       avaliacao = models.TextField
       descricao = models.TextField
       data_de_envio = models.DateField()
