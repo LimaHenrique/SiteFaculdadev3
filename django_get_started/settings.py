@@ -8,8 +8,8 @@ import os
 
 
 #path = "D:\\home\\data\\mysql\\MYSQLCONNSTR_localdb.txt"
-path = "D:\home\data\mysql\MYSQLCONNSTR_localdb.txt"
-mysqlconnopen = open(path,'r')
+pathMysqlConfig = "D:\home\data\mysql\MYSQLCONNSTR_localdb.txt"
+mysqlconnopen = open(pathMysqlConfig,'r')
 mysqlconnstr = mysqlconnopen.read()
 
 #mysqlconnstr = os.environ['MYSQLCONNSTR_localdb.txt']
