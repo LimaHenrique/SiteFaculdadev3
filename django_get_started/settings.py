@@ -62,7 +62,7 @@ WSGI_APPLICATION = 'django_get_started.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'localdb'
+        'NAME': 'localdb',
         'USER': 'azure',
         'PASSWORD': '6#vWHD_$',
         'HOST': '127.0.0.1,
