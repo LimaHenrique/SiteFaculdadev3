@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import Contato
 
 def index(request):
 
     context = {
         
-#"User" : Aluno.objects.all()
+       "User" : Aluno.objects.all()
         
     }
     return render(request, "index.html")
