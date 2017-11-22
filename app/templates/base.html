@@ -52,9 +52,26 @@ function myFunction() {
 		</form>		
 		   {% else %}
 
-		   	Olá, {{user}}
+		   	Bem Vindo, {{user}} ! <br/><br/>
+
+			{% if user.perfil == 'A' %}
+
+				Perfil Aluno<br/><br/><br/>
+
+				 <a href="logado.html" style="color:black;">Area do Aluno</a><br/><br/><br/>
+
+
+			 {% endif %}
+
+			{% if user.perfil == 'P' %}
+
+				Perfil	Professor<br/><br/><br/>
+
+				 <a href="logado.html" style="color:black;">Area do Professor</a><br/><br/><br/>
+
+			 {% endif %}
 		    
-		   <a href="sair/" style="color:black;">Clique para Sair</a>
+		   <a href="sair/" style="color:black;">Clique para Sair</a><br/>
 
 			{% endif %}
 			</div>
