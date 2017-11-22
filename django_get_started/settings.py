@@ -8,7 +8,7 @@ import os
 
 
 #path = "D:\\home\\data\\mysql\\MYSQLCONNSTR_localdb.txt"
-path = "\home\data\mysql\MYSQLCONNSTR_localdb.txt"
+path = "D:\home\data\mysql\MYSQLCONNSTR_localdb.txt"
 mysqlconnopen = open(path,'r')
 mysqlconnstr = mysqlconnopen.read()
 print()
