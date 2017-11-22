@@ -51,7 +51,7 @@ class Usuario(AbstractBaseUser):
       def _str_(self):
             return self.nome
 
-class curso(models.Model):
+class Curso(models.Model):
       sigla = models.CharField(max_length=5)
       nome = models.CharField(unique=True)                  
 
