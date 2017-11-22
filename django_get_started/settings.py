@@ -6,9 +6,9 @@ Django settings for django_get_started project.
 from os import path
 import os
 
-mysqlconnstr = os.environ['MYSQLCONNSTR_localdb']
-mysqlconnlst = mysqlconnstr.split(';')
-mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
+#mysqlconnstr = os.environ['MYSQLCONNSTR_localdb']
+#mysqlconnlst = mysqlconnstr.split(';')
+#mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
 
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 
@@ -62,6 +62,18 @@ WSGI_APPLICATION = 'django_get_started.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'localdb'
+        'USER': 'azure',
+        'PASSWORD': '6#vWHD_$',
+        'HOST': 127.0.0.1,
+        'PORT': 50474,
+    }
+}
+
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': mysqlconndict['Database'],
         'USER': mysqlconndict['User Id'],
         'PASSWORD': mysqlconndict['Password'],
@@ -69,6 +81,7 @@ DATABASES = {
         'PORT': mysqlconndict['Data Source'].split(':')[1],
     }
 }
+'''
 
 '''
 DATABASES = {
