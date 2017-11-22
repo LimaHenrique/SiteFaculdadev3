@@ -53,7 +53,7 @@ class Usuario(AbstractBaseUser):
 
 class Curso(models.Model):
       sigla = models.CharField(max_length=5)
-      nome = models.CharField(unique=True,max_length=200)                  
+      nome = models.CharField(max_length=200)                  
 
 class GradeCurricular(models.Model):
       ano = models.Field
