@@ -5,7 +5,7 @@ def index(request):
 
     context = {
         
-        "User" : Aluno.objects.all()
+#"User" : Aluno.objects.all()
         
     }
     return render(request, "index.html")
