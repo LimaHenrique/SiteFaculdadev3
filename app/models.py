@@ -65,7 +65,7 @@ class GradeCurricular(models.Model):
       )
 
 class Periodo(models.Model):
-      numero = models.TinyintField
+      numero = models.IntegerField
       gradecurricular = models.ForeignKey(
 
         GradeCurricular
@@ -74,7 +74,7 @@ class Periodo(models.Model):
 
 class Disciplina(models.Model):
       nome = models.CharField(max_length=240)
-      carga_horaria = models.Tinyint
+      carga_horaria = models.IntegerField
       teoria = models.DecimalField(max_length=3)
       pratica = models.DecimalField(max_length=3)
       ementa = models.TextField
@@ -97,7 +97,7 @@ class PeriodoDisciplina(models.Model):
       )
 
 class DisciplinaOfertada(models.Model):
-      ano = models.SmallIntegerField
+      ano = models.IntegerField
       semestre = models.CharField(max_length=1)
       disciplina = models.ForeignKey(
 
@@ -153,7 +153,7 @@ class CursoTurma(models.Model):
       )
 
 class Questao(models.Model):
-      numero = models.SmallIntegerField
+      numero = models.IntegerField
       data_limite_entrega = models.DateField
       descricao = models.TextField
       data = models.DateField
