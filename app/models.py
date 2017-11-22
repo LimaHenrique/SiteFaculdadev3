@@ -185,7 +185,7 @@ class Resposta(models.Model):
 
       )
       data_avaliacao = models.DataField
-      nota = models.DecimalField(max_length=4,2)
+      nota = models.DecimalField
       avaliacao = models.TextField
       descricao = models.TextField
       data_de_envio = models.DateField
