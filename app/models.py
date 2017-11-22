@@ -1,4 +1,3 @@
-from django.test import TestCase
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 # Create your models here.
@@ -23,9 +22,11 @@ class UsuarioManager(BaseUserManager):
 class Usuario(AbstractBaseUser):
       nome = models.CharField(max_length=50)
       ra = models.IntegerField(unique=True)
-      #password = models.CharField(max_length=100)
+      password = models.CharField(max_length=100)
       perfil = models.CharField(max_length=1, default='C')
       ativo = models.BooleanField(default=True)
+      email = models.CharField(max_length=80)
+      celular = models.CharField(max_length=11)
 
       USERNAME_FIELD = 'ra'
       REQUIRED_FIELDS = ['nome']
@@ -48,39 +49,65 @@ class Usuario(AbstractBaseUser):
       def get_full_name(self):
             return self.nome
 
-      def __str__(self):
+      def _str_(self):
             return self.nome
-class Curso(models.Model):
-      
+
+
+      )
+
+class curso(models.Model):
       sigla = models.CharField(max_length=5)
-      nome = models.CharField(max_length=200)
-      tipo = models.CharField(max_length=50,blank=True)
-      carga_horaria = models.IntegerField(default=1000)
-      ativo = models.BooleanField(default=True)
-      descricao = models.TextField(blank=True)
-   
-      def __str__(self):
-            return self.nome
+      nome = models.CharField(unique=True)                  
 
-class Disciplina(models.Model):
-      nome = models.CharField(max_length=200)
-      carga_horaria = models.IntegerField
-      conteudo = models.TextField(max_length=1000)
-
-      def __str__(self):
-            return self.nome
-
-class CurDis(models.Model):
+class GradeCurricular(models.Model):
+      ano = models.SmallintField
+      semestre = models.CharField(max_length=1)
       curso = models.ForeignKey(
 
         Curso
+
+      )
+
+class Periodo(models.Model):
+      numero = models.TinyintField
+      gradecurricular = models.ForeignKey(
+
+        GradeCurricular
+
+      )
+
+class Disciplina(models.Model):
+      nome = models.CharField(max_length=240)
+      carga_horaria = models.Tinyint
+      teoria = models.DecimalField(max_length=3)
+      pratica = models.DecimalField(max_length=3)
+      ementa = models.TextField
+      competencias = models.TextField
+      habilidades = models.TextField
+      conteudo = models.TextField
+      bibliografia_basica = models.TextField
+      bibliografia_complementar = models.TextField
+
+class PeriodoDisciplina(models.Model):
+      gradecurricular = models.ForeignKey(
+
+        GradeCurricular
 
       )
       disciplina = models.ForeignKey(
 
         Disciplina
 
-      )            
+      )
+
+class DisciplinaOfertada(models.Model):
+      ano = models.SmallintField
+      semestre = models.CharField(max_length=1)
+      disciplina = models.ForeignKey(
+
+        Disciplina
+
+      )
 
 class Aluno(Usuario):
       curso = models.ForeignKey(
@@ -90,27 +117,86 @@ class Aluno(Usuario):
       )
 
 class Professor(Usuario):
-      apelido = models.CharField(max_length=30)
-      disciplina = models.ForeignKey(
-            Disciplina
-      )
+      apelido = models.CharField(unique=True,max_length=30)
 
 class Turma(models.Model):
-      turma = models.CharField(max_length=240) 
-      limite = models.IntegerField(default=40)
+      turma = models.CharField(max_length=15)
+      disciplinaofertada = models.ForeignKey(
 
-class TPA(models.Model):
-      turma = models.ForeignKey(
+        DisciplinaOfertada
 
-            Turma
       )
       professor = models.ForeignKey(
 
-            Professor
-      )    
+        Professor
+
+      )
+
+class Matricula(models.Model):
+      aluno = models.ForeignKey(
+
+        Aluno
+
+      )
+      turma = models.ForeignKey(
+
+        Turma
+
+      )
+
+class CursoTurma(models.Model):
       curso = models.ForeignKey(
-            Curso
+
+        Curso
+
       )
-      disciplina = models.ForeignKey(
-            Disciplina
+      turma = models.ForeignKey(
+
+        Turma
+
       )
+
+class Questao(models.Model):
+      numero = models.IntegerField
+      data_limite_entrega = models.DateField
+      descricao = models.TextField
+      data = models.DateField
+      turma = models.ForeignKey(
+
+        Turma
+
+      )
+
+class ArquivosQuestao(models.Model):
+      numero_questao = models.IntegerField
+      arquivo = models.CharField(max_length=500)
+      questao = models.ForeignKey(
+
+        Questao
+
+      )
+
+class Resposta(models.Model):
+      questao = models.ForeignKey(
+
+        Questao
+
+      )
+      aluno = models.ForeignKey(
+
+        Aluno
+
+      )
+      data_avaliacao = models.DataField
+      nota = models.DecimalField(max_length=4,2)
+      avaliacao = models.TextField
+      descricao = models.TextField
+      data_de_envio = models.DateField
+
+class ArquivosResposta(models.Model):
+      resposta = models.ForeignKey(
+
+        Resposta
+
+      )      
+      arquivo = models.CharField(max_length=500)
