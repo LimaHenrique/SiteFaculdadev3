@@ -2,17 +2,13 @@
 Django settings for django_get_started project.
 """
 
-
+    
 from os import path
 import os
 
-
-#path = "D:\\home\\data\\mysql\\MYSQLCONNSTR_localdb.txt"
 pathMysqlConfig = "D:\home\data\mysql\MYSQLCONNSTR_localdb.txt"
 mysqlconnopen = open(pathMysqlConfig,'r')
 mysqlconnstr = mysqlconnopen.read()
-
-#mysqlconnstr = os.environ['MYSQLCONNSTR_localdb.txt']
 mysqlconnlst = mysqlconnstr.split(';')
 mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
 
@@ -68,19 +64,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_get_started.wsgi.application'
 
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'localdb',
-        'USER': 'azure',
-        'PASSWORD': '6#vWHD_$',
-        'HOST': 127.0.0.1,
-        'PORT': '50474',
-    }
-}
-'''
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -91,15 +74,6 @@ DATABASES = {
         'PORT': mysqlconndict['Data Source'].split(':')[1],
     }
 }
-
-'''
-DATABASES = {
-    'default':{
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR,"db.slqlite3"),
-    }
-}
-'''
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -122,4 +96,4 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-STATIC_URL = '/static/'
+STATIC_URL = 'app/static/'
