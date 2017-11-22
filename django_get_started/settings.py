@@ -7,9 +7,11 @@ from os import path
 import os
 
 
-path = "D:\\home\\data\\mysql\\MYSQLCONNSTR_localdb.txt"
-mysqlconnopen = os.open(path,'r')
+#path = "D:\\home\\data\\mysql\\MYSQLCONNSTR_localdb.txt"
+path = "\home\data\mysql\MYSQLCONNSTR_localdb.txt"
+mysqlconnopen = open(path,'r')
 mysqlconnstr = mysqlconnopen.read()
+print()
 #mysqlconnstr = os.environ['MYSQLCONNSTR_localdb.txt']
 mysqlconnlst = mysqlconnstr.split(';')
 mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
