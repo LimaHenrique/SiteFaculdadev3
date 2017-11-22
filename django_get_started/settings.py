@@ -11,15 +11,14 @@ mysqlconnlst = mysqlconnstr.split(';')
 mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
 
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'zne*e2op%jdw&=z4^3p$l@!@$l+15f)w@c3-w-zd137-n8ej0$2'
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-
 ALLOWED_HOSTS = ['*']
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,27 +26,20 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-)
+]
 
-TIME_ZONE = 'America/Sao_Paulo'
+MIDDLEWARE = [
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+]
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'pt-br'
-
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
-USE_I18N = True
-
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale.
-USE_L10N = True
-
-# If you set this to False, Django will not use timezone-aware datetimes.
-USE_TZ = True
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'n(bd1f1c%e8=_xad02x5qtfn%wgwpi492e$8_erx+d)!tpeoim'
+ROOT_URLCONF = 'django_get_started.urls'
 
 TEMPLATES = [
     {
@@ -65,20 +57,6 @@ TEMPLATES = [
     },
 ]
 
-ROOT_URLCONF = 'django_get_started.urls'
-
-MIDDLEWARE = [
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-]
-
-# Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'django_get_started.wsgi.application'
 
 DATABASES = {
@@ -116,6 +94,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Specify the default test runner.
-TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+LANGUAGE_CODE = 'pt-br'
+TIME_ZONE = 'America/Sao_Paulo'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
 STATIC_URL = '/static/'
