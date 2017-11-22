@@ -65,31 +65,7 @@ class ProfessorAdmin(UserAdmin):
     ordering = ('ra',)
     filter_horizontal = ()
 
-class cursoAdmin(admin.ModelAdmin):
-
-    list_display = ('nome','tipo','carga_horaria') 
-
-class DisciplinaAdmin(admin.ModelAdmin):
-    
-    list_display = ('nome','conteudo','carga_horaria') 
-
-class TurmaAdmin(admin.ModelAdmin):
-    
-    list_display = ('turma','limite') 
-
-class TPAAdmin(admin.ModelAdmin):
-    
-    list_display = ('disciplina','turma','curso','professor') 
-
-class CurDisAdmin(admin.ModelAdmin):
-    
-    list_display = ('disciplina','curso') 
-
 # Register your models here.
 admin.site.register(Curso,cursoAdmin)
 admin.site.register(Aluno,AlunoAdmin)
 admin.site.register(Professor,ProfessorAdmin)
-admin.site.register(Disciplina,DisciplinaAdmin)
-admin.site.register(Turma,TurmaAdmin)
-admin.site.register(TPA,TPAAdmin)
-admin.site.register(CurDis,CurDisAdmin)
