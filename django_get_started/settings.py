@@ -6,7 +6,11 @@ Django settings for django_get_started project.
 from os import path
 import os
 
-mysqlconnstr = os.environ['MYSQLCONNSTR_localdb.txt']
+
+path = "D:\\home\\data\\mysql\\MYSQLCONNSTR_localdb.txt"
+mysqlconnopen = os.open(path,'r')
+mysqlconnstr = mysqlconnopen.read()
+#mysqlconnstr = os.environ['MYSQLCONNSTR_localdb.txt']
 mysqlconnlst = mysqlconnstr.split(';')
 mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
 
