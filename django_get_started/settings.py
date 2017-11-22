@@ -5,14 +5,13 @@ Django settings for django_get_started project.
 
 from os import path
 import os
-#mysqlconnstr = os.environ['MYSQLCONNSTR_localdb']
-#mysqlconnlst = mysqlconnstr.split(';')
-#mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
+
+mysqlconnstr = os.environ['MYSQLCONNSTR_localdb']
+mysqlconnlst = mysqlconnstr.split(';')
+mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
 
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
 
 DEBUG = True
@@ -20,35 +19,16 @@ TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = {'*'}
 
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': mysqlconndict['Database'],
-        'USER': mysqlconndict['User Id'],
-        'PASSWORD': mysqlconndict['Password'],
-        'HOST': mysqlconndict['Data Source'].split(':')[0],
-        'PORT': mysqlconndict['Data Source'].split(':')[1],
-    }
-}
-'''
-DATABASES = {
-    'default':{
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR,"db.slqlite3"),
-    }
-}
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'app',
+)
 
-
-
-
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
 TIME_ZONE = 'America/Sao_Paulo'
 
 # Language code for this installation. All choices can be found here:
@@ -66,13 +46,8 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-
-#STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
-
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'n(bd1f1c%e8=_xad02x5qtfn%wgwpi492e$8_erx+d)!tpeoim'
-
-# List of callables that know how to import templates from various sources.
 
 TEMPLATES = [
     {
@@ -89,31 +64,43 @@ TEMPLATES = [
         },
     },
 ]
-MIDDLEWARE_CLASSES = (
-    'django.middleware.security.SecurityMiddleware',
+
+ROOT_URLCONF = 'django_get_started.urls'
+
+MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
-
-ROOT_URLCONF = 'django_get_started.urls'
+    'django.middleware.security.SecurityMiddleware',
+]
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'django_get_started.wsgi.application'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': mysqlconndict['Database'],
+        'USER': mysqlconndict['User Id'],
+        'PASSWORD': mysqlconndict['Password'],
+        'HOST': mysqlconndict['Data Source'].split(':')[0],
+        'PORT': mysqlconndict['Data Source'].split(':')[1],
+    }
+}
 
-INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'app',
-)
+'''
+DATABASES = {
+    'default':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR,"db.slqlite3"),
+    }
+}
+'''
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
