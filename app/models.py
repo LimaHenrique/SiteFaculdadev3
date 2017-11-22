@@ -56,7 +56,7 @@ class curso(models.Model):
       nome = models.CharField(unique=True)                  
 
 class GradeCurricular(models.Model):
-      ano = models.SmallintField
+      ano = models.Field
       semestre = models.CharField(max_length=1)
       curso = models.ForeignKey(
 
@@ -97,7 +97,7 @@ class PeriodoDisciplina(models.Model):
       )
 
 class DisciplinaOfertada(models.Model):
-      ano = models.SmallintField
+      ano = models.SmallIntegerField
       semestre = models.CharField(max_length=1)
       disciplina = models.ForeignKey(
 
@@ -153,7 +153,7 @@ class CursoTurma(models.Model):
       )
 
 class Questao(models.Model):
-      numero = models.IntegerField
+      numero = models.SmallIntegerField
       data_limite_entrega = models.DateField
       descricao = models.TextField
       data = models.DateField
@@ -184,7 +184,7 @@ class Resposta(models.Model):
 
       )
       data_avaliacao = models.DataField
-      nota = models.DecimalField
+      nota = models.DecimalField(decimal_places=4,max_digits=2)
       avaliacao = models.TextField
       descricao = models.TextField
       data_de_envio = models.DateField
