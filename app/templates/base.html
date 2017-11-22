@@ -1,13 +1,13 @@
-{% load static %}
-
+﻿
 <!DOCTYPE html>
 <html lang = "pt-br">
 <head>
 	<meta charset = "utf-8">
     <title>Faculdade Impacta</title>
-    <link rel="shortcut icon" href="{% static 'logo.jpg' %} " type="image/jpg" style="width:100%"/>
-    <link rel="stylesheet" type="text/css"  href="{% static 'form.css' %}"/>  
-	<link rel="stylesheet" type="text/css"  href="{% static 'index.css' %}"/>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static '..\static\logo.jpg' %} " type="image/jpg" style="width:100%"/>
+    <link rel="stylesheet" type="text/css"  href="{% static '..\static\form.css' %}"/>  
+	<link rel="stylesheet" type="text/css"  href="{% static '..\static\index.css' %}"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -28,7 +28,7 @@ function myFunction() {
 	<nav class = "menu">
 		<ul style="text-align: center">
 			<br/>
-			<img class = "logo" src = "{% static 'logo-novo.png' %}" style="height: 50px; width: 180px"/>
+			<img class = "logo" src = "{% static '..\static\logo-novo.png' %}" style="height: 50px; width: 180px"/>
 			<a href = "index.html"><li style="font-size:17px">A Impacta</li></a>
 			<a href = "cursos.html"><li style="font-size:17px">Cursos</li></a>
 			<a href = "eventos.html"><li style="font-size:17px">Eventos</li></a>
@@ -36,17 +36,27 @@ function myFunction() {
 			<a href = "contato.html"><li style="font-size:17px">Contato</li></a>
 			
 			<div class="w3-dropdown-click">
-			<button onclick="myFunction()" class="w3-button "><img class = "login "src = "{% static 'login.png' %}"/></button>
+			<button onclick="myFunction()" class="w3-button "><img class = "login "src = "{% static '..\static\login.png' %}"/></button>
 			<div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
-				<form class="w3-bar-item w3-button" method = "get">
-					<label for = "nom">Nome: </label>
-					<input id = "nom" name = "nome"/><br>
-	
-					<label for = "sen">Senha: </label>
-					<input id = "sen" name = "senha"/><br><br>
-					
-					<input type = "submit" value ="Entrar">
-                </form>
+
+		  {% if not user.is_authenticated %}
+
+		<form method="POST">
+
+		 {% csrf_token %}
+
+		  {{ form.as_p }}
+		  
+		  <input type="submit" style="color:black" value="Entrar"/>
+				
+		</form>		
+		   {% else %}
+
+		   	Olá, {{user}}
+		    
+		   <a href="sair/" style="color:black;">Clique para Sair</a>
+
+			{% endif %}
 			</div>
 			</div>	
 			<br/><br/>
@@ -68,11 +78,11 @@ function myFunction() {
 		A Faculdade Impacta Tecnologia nasceu da percepção de um Grupo, que desde 1998 é referência em TI, Gestão e Design, para suprir a falta de mão de obra especializada do mercado de tecnologia e oferecer uma formação completa e multidisciplinar aos alunos.</p>
 		<hr />
 	<h3 style="font-size:20px"><b></b>SIGA A IMPACTA</b></h3>
-		<a href = "#"><img id="icon1" src = "{% static 'twitter.png' %}"/></a>
-		<a href = "#"><img id = "icon2" src = "{% static 'youtube.png' %}"/></a>
-		<a href = "#"><img id = "icon3" src = "{% static 'facebook.png' %}"/></a>
-		<a href = "#"><img id = "icon4" src = "{% static 'instagram.png' %}"/></a>
-		<a href = "#"><img id = "icon5" src = "{% static 'linkedin.png' %}"/></a>
+		<a href = "#"><img id="icon1" src = "{% static '..\static\twitter.png' %}"/></a>
+		<a href = "#"><img id = "icon2" src = "{% static '..\static\youtube.png' %}"/></a>
+		<a href = "#"><img id = "icon3" src = "{% static '..\static\facebook.png' %}"/></a>
+		<a href = "#"><img id = "icon4" src = "{% static '..\static\instagram.png' %}"/></a>
+		<a href = "#"><img id = "icon5" src = "{% static '..\static\linkedin.png' %}"/></a>
 	</div>
 
 	<div>
