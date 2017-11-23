@@ -111,7 +111,7 @@ class MatriculaAdmin(admin.ModelAdmin):
 
 class PeriodoAdmin(admin.ModelAdmin):
     
-    list_display = ('gradecurricular')   
+    list_display = ('gradecurricular','turma')   
 
 class PeriodoDisciplinaAdmin(admin.ModelAdmin):
     
