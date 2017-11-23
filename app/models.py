@@ -75,8 +75,8 @@ class Periodo(models.Model):
 class Disciplina(models.Model):
       nome = models.CharField(max_length=240)
       carga_horaria = models.IntegerField
-      teoria = models.DecimalField(max_length=3)
-      pratica = models.DecimalField(max_length=3)
+      teoria = models.DecimalField(max_digits=3, decimal_places=1)
+      pratica = models.DecimalField(max_digits=3, decimal_places=1)
       ementa = models.TextField
       competencias = models.TextField
       habilidades = models.TextField
@@ -184,7 +184,7 @@ class Resposta(models.Model):
 
       )
       data_avaliacao = models.DateField()
-      nota = models.DecimalField(max_digits=4)
+      nota = models.DecimalField(max_digits=4, decimal_places=2)
       avaliacao = models.TextField
       descricao = models.TextField
       data_de_envio = models.DateField()
