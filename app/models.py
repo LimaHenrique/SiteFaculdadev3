@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class UsuarioManager(BaseUserManager):
       use_in_migrations = True
-      def _create_user(self, ra, password, **extra_fields):
+      def createuser(self, ra, password, **extra_fields):
           if not ra:
               raise ValueError('RA precisa ser preenchido')
           user = self.model(ra=ra, **extra_fields)
