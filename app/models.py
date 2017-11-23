@@ -93,8 +93,6 @@ class Aluno(Usuario):
       celular = models.CharField('celular', max_length=11)
       sigla = models.CharField('sigla_curso', max_length=2)
       list_display = ('nome','ra')
-      def __str__(self):
-            return self.nome
       class Meta:
             db_table = 'Aluno'
 class Professor(Usuario):
@@ -103,8 +101,6 @@ class Professor(Usuario):
       nome = models.CharField('nome', max_length=120)
       email = models.CharField('email', max_length=80)
       celular = models.CharField('celular', max_length=11)
-      def __str__(self):
-                return self.apelido
       class Meta:
             db_table = 'Professor'
 class Turma(models.Model):
