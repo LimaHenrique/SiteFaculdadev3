@@ -45,7 +45,7 @@ class Curso(models.Model):
       class Meta:
             db_table = 'Curso'               
 class GradeCurricular(models.Model):
-      sigla = models.CharField(to='Curso', max_length=5, db_column="sigla_curso", primary_key=True, foreign_key=True, null=False, blank=False, related_name="sigla_curso") 
+      sigla = models.CharField(to='Curso', max_length=5, db_column="sigla_curso", primary_key=True, foreign_key=True, null=False, blank=False) 
       ano = models.SmallIntegerField('ano', null=False, primary_key=True)
       semestre = models.CharField('semestre', max_length=1,null=False, primary_key=True)
       def __str__(self):
