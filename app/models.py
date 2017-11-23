@@ -103,8 +103,8 @@ class Professor(Usuario):
       
 class Turma(models.Model):
       turma = models.CharField(max_length=15)
+      disciplina = models.ForeignKey(Disciplina)
       disciplinaOfertada = models.ForeignKey(DisciplinaOfertada)
-      disciplinaOfertada = models.ForeignKey(Disciplina)
       professor = models.ForeignKey(Professor)
       def _str_(self):
             return self.turma
