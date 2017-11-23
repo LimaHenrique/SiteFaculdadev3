@@ -21,7 +21,7 @@ class NovoProfessorForm(forms.ModelForm):
     
     class Meta:
         model = Professor
-        fields = ('ra', 'nome','disciplina','apelido')
+        fields = ('ra', 'nome','apelido')
 
     def save(self, commit=True):
         user = super(NovoProfessorForm, self).save(commit=False)
@@ -39,7 +39,7 @@ class AlterarAlunoForm(forms.ModelForm):
 class AlterarProfessorForm(forms.ModelForm):
     class Meta:
         model = Professor
-        fields = ('nome', 'disciplina','apelido')
+        fields = ('nome','apelido')
 
 class AlunoAdmin(UserAdmin):
     
@@ -57,10 +57,10 @@ class ProfessorAdmin(UserAdmin):
     
     form =  AlterarAlunoForm
     add_form = NovoAlunoForm
-    list_display = ('ra', 'nome', 'disciplina','apelido')
+    list_display = ('ra', 'nome','apelido')
     list_filter = ('perfil',)
-    fieldsets = ( (None, {'fields': ('ra', 'nome', 'disciplina','password','apelido')}),)
-    add_fieldsets = ((None, { 'fields': ('ra', 'nome', 'disciplina','apelido')} ),)
+    fieldsets = ( (None, {'fields': ('ra', 'nome','password','apelido')}),)
+    add_fieldsets = ((None, { 'fields': ('ra', 'nome','apelido')} ),)
     search_fields = ('ra',)
     ordering = ('ra',)
     filter_horizontal = ()
