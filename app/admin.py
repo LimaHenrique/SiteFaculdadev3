@@ -67,7 +67,7 @@ class ProfessorAdmin(UserAdmin):
 
 class CursoAdmin(admin.ModelAdmin):
 
-    list_display = ('nome','tipo','carga_horaria') 
+    list_display = ('nome','tipo') 
 
 class DisciplinaAdmin(admin.ModelAdmin):
     
