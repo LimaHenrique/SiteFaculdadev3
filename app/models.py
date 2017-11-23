@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from decimal import Decimal
 # Create your models here.
 
 class UsuarioManager(BaseUserManager):
@@ -184,7 +185,7 @@ class Resposta(models.Model):
 
       )
       data_avaliacao = models.DateField()
-      nota = models.DecimalField(4,2)
+      nota = models.DecimalField(max_digits=4, decimal_places=2)
       avaliacao = models.TextField
       descricao = models.TextField
       data_de_envio = models.DateField()
