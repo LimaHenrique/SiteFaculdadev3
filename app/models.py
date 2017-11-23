@@ -52,10 +52,11 @@ class Usuario(AbstractBaseUser):
             return self.nome
 
 class Curso(models.Model):
-      sigla = models.CharField(max_length=5)
+      sigla = models.CharField(max_length=5,primary_key=True)
       nome = models.CharField(unique=True,max_length=100)                  
       def _str_(self):
             return self.nome
+      
 class GradeCurricular(models.Model):
       ano = models.IntegerField
       semestre = models.CharField(max_length=1)
