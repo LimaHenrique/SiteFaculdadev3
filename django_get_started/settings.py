@@ -15,7 +15,7 @@ mysqlconndict = dict(s.split('=',1) for s in mysqlconnlst)
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(__file__)
-#STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'zne*e2op%jdw&=z4^3p$l@!@$l+15f)w@c3-w-zd137-n8ej0$2'
