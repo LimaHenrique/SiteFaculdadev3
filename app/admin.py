@@ -67,7 +67,7 @@ class ProfessorAdmin(UserAdmin):
 
 class CursoAdmin(admin.ModelAdmin):
 
-    list_display = ('nome','tipo') 
+    list_display = ('nome','sigla') 
 
 class DisciplinaAdmin(admin.ModelAdmin):
     
