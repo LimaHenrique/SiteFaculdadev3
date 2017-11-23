@@ -72,15 +72,15 @@ class Periodo(models.Model):
 
 class Disciplina(models.Model):
       nome = models.CharField(max_length=240)
-      carga_horaria = models.IntegerField
+      carga_horaria = models.IntegerField()
       teoria = models.DecimalField(max_digits=3, decimal_places=1)
       pratica = models.DecimalField(max_digits=3, decimal_places=1)
-      ementa = models.TextField
-      competencias = models.TextField
-      habilidades = models.TextField
-      conteudo = models.TextField
-      bibliografia_basica = models.TextField
-      bibliografia_complementar = models.TextField
+      ementa = models.TextField()
+      competencias = models.TextField()
+      habilidades = models.TextField()
+      conteudo = models.TextField()
+      bibliografia_basica = models.TextField()
+      bibliografia_complementar = models.TextField()
       def _str_(self):
             return self.nome
 
