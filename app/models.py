@@ -154,9 +154,9 @@ class CursoTurma(models.Model):
 
 class Questao(models.Model):
       numero = models.IntegerField
-      data_limite_entrega = models.DateField
+      data_limite_entrega = models.DateField()
       descricao = models.TextField
-      data = models.DateField
+      data = models.DateField()
       turma = models.ForeignKey(
 
         Turma
@@ -183,11 +183,11 @@ class Resposta(models.Model):
         Aluno
 
       )
-      data_avaliacao = models.DataField
+      data_avaliacao = models.DateField()
       nota = models.DecimalField(max_digits=4, decimal_places=2)
       avaliacao = models.TextField
       descricao = models.TextField
-      data_de_envio = models.DateField
+      data_de_envio = models.DateField()
 
 class ArquivosResposta(models.Model):
       resposta = models.ForeignKey(
