@@ -73,6 +73,50 @@ class DisciplinaAdmin(admin.ModelAdmin):
     
     list_display = ('nome','conteudo','carga_horaria') 
 
+class DisciplinaOfertadaAdmin(admin.ModelAdmin):
+
+    list_display = ('semestre','disciplina') 
+
+class TurmaAdmin(admin.ModelAdmin):
+    
+    list_display = ('turma','disciplina','professor') 
+
+class QuestaoAdmin(admin.ModelAdmin):
+    
+    list_display = ('data_limite_entrega','data','turma')     
+    
+class RespostaAdmin(admin.ModelAdmin):
+
+    list_display = ('data_avaliacao','nota','data_de_envio','questao','aluno') 
+
+class ArquivosQuestaoAdmin(admin.ModelAdmin):
+    
+    list_display = ('arquivo','questao')     
+    
+class ArquivosRespostaAdmin(admin.ModelAdmin):
+
+    list_display = ('arquivo','resposta') 
+
+class GradeCurricularAdmin(admin.ModelAdmin):
+    
+    list_display = ('semestre','curso')   
+
+class CursoTurmaAdmin(admin.ModelAdmin):
+    
+    list_display = ('curso','turma')   
+
+class MatriculaAdmin(admin.ModelAdmin):
+    
+    list_display = ('aluno','turma')   
+
+class PeriodoAdmin(admin.ModelAdmin):
+    
+    list_display = ('gradecurricular')   
+
+class PeriodoDisciplinaAdmin(admin.ModelAdmin):
+    
+    list_display = ('disciplina','gradecurricular')   
+                                
 # Register your models here.
 admin.site.register(Curso,CursoAdmin)
 admin.site.register(Aluno,AlunoAdmin)
