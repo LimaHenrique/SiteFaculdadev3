@@ -65,7 +65,7 @@ class ProfessorAdmin(UserAdmin):
     ordering = ('ra',)
     filter_horizontal = ()
 
-class cursoAdmin(admin.ModelAdmin):
+class CursoAdmin(admin.ModelAdmin):
 
     list_display = ('nome','tipo','carga_horaria') 
 
@@ -74,7 +74,7 @@ class DisciplinaAdmin(admin.ModelAdmin):
     list_display = ('nome','conteudo','carga_horaria') 
 
 # Register your models here.
-admin.site.register(Curso,cursoAdmin)
+admin.site.register(Curso,CursoAdmin)
 admin.site.register(Aluno,AlunoAdmin)
 admin.site.register(Professor,ProfessorAdmin)
 admin.site.register(Disciplina,DisciplinaAdmin)
