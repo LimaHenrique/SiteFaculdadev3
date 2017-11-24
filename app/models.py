@@ -58,21 +58,21 @@ class Curso(models.Model):
             return self.nome
       
 class GradeCurricular(models.Model):
-      ano = models.SmallIntegerField(null=True)
+      ano = models.SmallIntegerField()
       semestre = models.CharField(max_length=1)
       curso = models.ForeignKey(Curso)
       def _str_(self):
             return self.ano
 
 class Periodo(models.Model):
-      numero = models.IntegerField(null=True)
+      numero = models.IntegerField()
       gradecurricular = models.ForeignKey(GradeCurricular)
       def _str_(self):
             return self.numero
 
 class Disciplina(models.Model):
       nome = models.CharField(max_length=240)
-      carga_horaria = models.IntegerField(null=True)
+      carga_horaria = models.IntegerField()
       teoria = models.DecimalField(max_digits=3, decimal_places=1)
       pratica = models.DecimalField(max_digits=3, decimal_places=1)
       ementa = models.TextField(null=True)
@@ -89,7 +89,7 @@ class PeriodoDisciplina(models.Model):
       disciplina = models.ForeignKey(Disciplina)
       
 class DisciplinaOfertada(models.Model):
-      ano = models.SmallIntegerField(null=True)
+      ano = models.SmallIntegerField()
       semestre = models.CharField(max_length=1)
       disciplina = models.ForeignKey(Disciplina)
       def _str_(self):
@@ -120,7 +120,7 @@ class CursoTurma(models.Model):
       turma = models.ForeignKey(Turma)
       
 class Questao(models.Model):
-      numero = models.IntegerField(null=True)
+      numero = models.IntegerField()
       data_limite_entrega = models.DateField(auto_now=False, auto_now_add=False)
       descricao = models.TextField(null=True)
       data = models.DateField(auto_now=False, auto_now_add=False)
@@ -129,7 +129,7 @@ class Questao(models.Model):
             return self.numero
       
 class ArquivosQuestao(models.Model):
-      numero_questao = models.IntegerField(null=True)
+      numero_questao = models.IntegerField()
       arquivo = models.CharField(max_length=500)
       questao = models.ForeignKey(Questao)
       def _str_(self):
