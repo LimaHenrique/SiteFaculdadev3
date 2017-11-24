@@ -53,19 +53,19 @@ class Usuario(AbstractBaseUser):
 
 class Curso(models.Model):
       sigla = models.CharField(primary_key=True,max_length=5)
-      nome = models.CharField(unique=True,max_length=100)                  
+      nome = models.CharField(unique=True,max_length=50)                  
       def _str_(self):
             return self.nome
       
 class GradeCurricular(models.Model):
-      ano = models.IntegerField
+      ano = models.SmallIntegerField(null=True)
       semestre = models.CharField(max_length=1)
       curso = models.ForeignKey(Curso)
       def _str_(self):
             return self.ano
 
 class Periodo(models.Model):
-      numero = models.IntegerField
+      numero = models.IntegerField(null=True)
       gradecurricular = models.ForeignKey(GradeCurricular)
       def _str_(self):
             return self.numero
@@ -89,7 +89,7 @@ class PeriodoDisciplina(models.Model):
       disciplina = models.ForeignKey(Disciplina)
       
 class DisciplinaOfertada(models.Model):
-      ano = models.IntegerField
+      ano = models.SmallIntegerField(null=True)
       semestre = models.CharField(max_length=1)
       disciplina = models.ForeignKey(Disciplina)
       def _str_(self):
@@ -120,48 +120,34 @@ class CursoTurma(models.Model):
       turma = models.ForeignKey(Turma)
       
 class Questao(models.Model):
-      numero = models.IntegerField
-      data_limite_entrega = models.DateField()
-      descricao = models.TextField
-      data = models.DateField()
+      numero = models.IntegerField(null=True)
+      data_limite_entrega = models.DateField(null=True)
+      descricao = models.TextField(null=True)
+      data = models.DateField(null=True)
       turma = models.ForeignKey(Turma)
       def _str_(self):
             return self.numero
       
 class ArquivosQuestao(models.Model):
-      numero_questao = models.IntegerField
+      numero_questao = models.IntegerField(null=True)
       arquivo = models.CharField(max_length=500)
-      questao = models.ForeignKey(
-
-        Questao
-
-      )
+      questao = models.ForeignKey(Questao)
       def _str_(self):
             return self.numero_questao
+      
 class Resposta(models.Model):
-      questao = models.ForeignKey(
-
-        Questao
-
-      )
-      aluno = models.ForeignKey(
-
-        Aluno
-
-      )
-      data_avaliacao = models.DateField()
+      questao = models.ForeignKey(Questao)
+      aluno = models.ForeignKey(Aluno)
+      data_avaliacao = models.DateField(null=True)
       nota = models.DecimalField(max_digits=4, decimal_places=2)
-      avaliacao = models.TextField
-      descricao = models.TextField
-      data_de_envio = models.DateField()
+      avaliacao = models.TextField(null=True)
+      descricao = models.TextField(null=True)
+      data_de_envio = models.DateField(null=True)
       def _str_(self):
             return self.avaliacao
+      
 class ArquivosResposta(models.Model):
-      resposta = models.ForeignKey(
-
-        Resposta
-
-      )      
+      resposta = models.ForeignKey(Resposta)      
       arquivo = models.CharField(max_length=500)
       def _str_(self):
             return self.arquivo
