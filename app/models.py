@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from datetime import date
+import datetime
 # Create your models here.
 
 class UsuarioManager(BaseUserManager):
@@ -122,9 +122,9 @@ class CursoTurma(models.Model):
       
 class Questao(models.Model):
       numero = models.IntegerField(null=True)
-      data_limite_entrega = models.DateField(DATE)
+      data_limite_entrega = models.DateField(_("Date"))
       descricao = models.TextField(null=True)
-      data = models.DateField(DATE)
+      data = models.DateField(_("Date"))
       turma = models.ForeignKey(Turma)
       def _str_(self):
             return self.numero
@@ -139,11 +139,11 @@ class ArquivosQuestao(models.Model):
 class Resposta(models.Model):
       questao = models.ForeignKey(Questao)
       aluno = models.ForeignKey(Aluno)
-      data_avaliacao = models.DateField(DATE)
+      data_avaliacao = models.DateField(_("Date"))
       nota = models.DecimalField(max_digits=4, decimal_places=2)
       avaliacao = models.TextField(null=True)
       descricao = models.TextField(null=True)
-      data_de_envio = models.DateField(DATE)
+      data_de_envio = models.DateField(_("Date"))
       def _str_(self):
             return self.avaliacao
       
