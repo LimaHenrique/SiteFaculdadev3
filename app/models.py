@@ -121,9 +121,9 @@ class CursoTurma(models.Model):
       
 class Questao(models.Model):
       numero = models.IntegerField(null=True)
-      data_limite_entrega = models.DateField(null=True)
+      data_limite_entrega = models.DateField(input_formats=settings.DATE_INPUT_FORMATS)
       descricao = models.TextField(null=True)
-      data = models.DateField(null=True)
+      data = models.DateField(input_formats=settings.DATE_INPUT_FORMATS)
       turma = models.ForeignKey(Turma)
       def _str_(self):
             return self.numero
@@ -138,11 +138,11 @@ class ArquivosQuestao(models.Model):
 class Resposta(models.Model):
       questao = models.ForeignKey(Questao)
       aluno = models.ForeignKey(Aluno)
-      data_avaliacao = models.DateField(null=True)
+      data_avaliacao = models.DateField(input_formats=settings.DATE_INPUT_FORMATS)
       nota = models.DecimalField(max_digits=4, decimal_places=2)
       avaliacao = models.TextField(null=True)
       descricao = models.TextField(null=True)
-      data_de_envio = models.DateField(null=True)
+      data_de_envio = models.DateField(input_formats=settings.DATE_INPUT_FORMATS)
       def _str_(self):
             return self.avaliacao
       
