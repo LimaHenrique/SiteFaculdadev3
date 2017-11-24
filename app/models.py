@@ -58,29 +58,29 @@ class Curso(models.Model):
             return self.nome
       
 class GradeCurricular(models.Model):
-      ano = models.SmallIntegerField()
+      ano = models.SmallIntegerField("Ano")
       semestre = models.CharField(max_length=1)
       curso = models.ForeignKey(Curso)
       def _str_(self):
             return self.ano
 
 class Periodo(models.Model):
-      numero = models.IntegerField()
+      numero = models.IntegerField("Numero")
       gradecurricular = models.ForeignKey(GradeCurricular)
       def _str_(self):
             return self.numero
 
 class Disciplina(models.Model):
       nome = models.CharField(max_length=240)
-      carga_horaria = models.IntegerField()
+      carga_horaria = models.IntegerField("Carga_Horaria")
       teoria = models.DecimalField(max_digits=3, decimal_places=1)
       pratica = models.DecimalField(max_digits=3, decimal_places=1)
-      ementa = models.TextField()
-      competencias = models.TextField()
-      habilidades = models.TextField()
-      conteudo = models.TextField()
-      bibliografia_basica = models.TextField()
-      bibliografia_complementar = models.TextField()
+      ementa = models.TextField(blank=True)
+      competencias = models.TextField(blank=True)
+      habilidades = models.TextField(blank=True)
+      conteudo = models.TextField(blank=True)
+      bibliografia_basica = models.TextField(blank=True)
+      bibliografia_complementar = models.TextField(blank=True)
       def _str_(self):
             return self.nome
 
@@ -89,7 +89,7 @@ class PeriodoDisciplina(models.Model):
       disciplina = models.ForeignKey(Disciplina)
       
 class DisciplinaOfertada(models.Model):
-      ano = models.SmallIntegerField()
+      ano = models.SmallIntegerField("Ano")
       semestre = models.CharField(max_length=1)
       disciplina = models.ForeignKey(Disciplina)
       def _str_(self):
@@ -120,16 +120,16 @@ class CursoTurma(models.Model):
       turma = models.ForeignKey(Turma)
       
 class Questao(models.Model):
-      numero = models.IntegerField()
+      numero = models.IntegerField("Numero")
       data_limite_entrega = models.DateField(auto_now=False, auto_now_add=False)
-      descricao = models.TextField()
+      descricao = models.TextField(blank=True)
       data = models.DateField(auto_now=False, auto_now_add=False)
       turma = models.ForeignKey(Turma)
       def _str_(self):
             return self.numero
       
 class ArquivosQuestao(models.Model):
-      numero_questao = models.IntegerField()
+      numero_questao = models.IntegerField("NumeroQuestao")
       arquivo = models.CharField(max_length=500)
       questao = models.ForeignKey(Questao)
       def _str_(self):
@@ -140,8 +140,8 @@ class Resposta(models.Model):
       aluno = models.ForeignKey(Aluno)
       data_avaliacao = models.DateField(auto_now=False, auto_now_add=False)
       nota = models.DecimalField(max_digits=4, decimal_places=2)
-      avaliacao = models.TextField()
-      descricao = models.TextField()
+      avaliacao = models.TextField(blank=True)
+      descricao = models.TextField(blank=True)
       data_de_envio = models.DateField(auto_now=False, auto_now_add=False)
       def _str_(self):
             return self.avaliacao
