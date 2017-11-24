@@ -75,12 +75,12 @@ class Disciplina(models.Model):
       carga_horaria = models.IntegerField()
       teoria = models.DecimalField(max_digits=3, decimal_places=1)
       pratica = models.DecimalField(max_digits=3, decimal_places=1)
-      ementa = models.TextField(null=True)
-      competencias = models.TextField(null=True)
-      habilidades = models.TextField(null=True)
-      conteudo = models.TextField(null=True)
-      bibliografia_basica = models.TextField(null=True)
-      bibliografia_complementar = models.TextField(null=True)
+      ementa = models.TextField()
+      competencias = models.TextField()
+      habilidades = models.TextField()
+      conteudo = models.TextField()
+      bibliografia_basica = models.TextField()
+      bibliografia_complementar = models.TextField()
       def _str_(self):
             return self.nome
 
@@ -122,7 +122,7 @@ class CursoTurma(models.Model):
 class Questao(models.Model):
       numero = models.IntegerField()
       data_limite_entrega = models.DateField(auto_now=False, auto_now_add=False)
-      descricao = models.TextField(null=True)
+      descricao = models.TextField()
       data = models.DateField(auto_now=False, auto_now_add=False)
       turma = models.ForeignKey(Turma)
       def _str_(self):
@@ -140,8 +140,8 @@ class Resposta(models.Model):
       aluno = models.ForeignKey(Aluno)
       data_avaliacao = models.DateField(auto_now=False, auto_now_add=False)
       nota = models.DecimalField(max_digits=4, decimal_places=2)
-      avaliacao = models.TextField(null=True)
-      descricao = models.TextField(null=True)
+      avaliacao = models.TextField()
+      descricao = models.TextField()
       data_de_envio = models.DateField(auto_now=False, auto_now_add=False)
       def _str_(self):
             return self.avaliacao
