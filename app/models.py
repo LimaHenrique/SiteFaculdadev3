@@ -140,8 +140,8 @@ class Resposta(models.Model):
       aluno = models.ForeignKey(Aluno)
       data_avaliacao = models.DateField(auto_now=False, auto_now_add=False)
       nota = models.DecimalField(max_digits=4, decimal_places=2)
-      avaliacao = models.CharField(max_length=1000)
-      descricao = models.CharField(max_length=1000)
+      avaliacao = models.TextField(blank=True)
+      descricao = models.TextField(blank=True)
       data_de_envio = models.DateField(auto_now=False, auto_now_add=False)
       def _str_(self):
             return self.avaliacao
