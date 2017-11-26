@@ -62,13 +62,11 @@ class GradeCurricular(models.Model):
       semestre = models.CharField(max_length=1)
       curso = models.ForeignKey(Curso)
       def _str_(self):
-            return self.ano
+            return self.semestre
 
 class Periodo(models.Model):
       numero = models.IntegerField("Numero")
       gradecurricular = models.ForeignKey(GradeCurricular)
-      def _str_(self):
-            return self.numero
 
 class Disciplina(models.Model):
       nome = models.CharField(max_length=240)
@@ -92,8 +90,6 @@ class DisciplinaOfertada(models.Model):
       ano = models.SmallIntegerField("Ano")
       semestre = models.CharField(max_length=1)
       disciplina = models.ForeignKey(Disciplina)
-      def _str_(self):
-            return self.ano
       
 class Aluno(Usuario):
       curso = models.ForeignKey(Curso)
@@ -141,8 +137,6 @@ class Resposta(models.Model):
       avaliacao = models.TextField(blank=True)
       descricao = models.TextField(blank=True)
       data_de_envio = models.DateField(auto_now=False, auto_now_add=False)
-      def _str_(self):
-            return self.avaliacao
       
 class ArquivosResposta(models.Model):
       resposta = models.ForeignKey(Resposta)      
