@@ -29,7 +29,7 @@ class Usuario(AbstractBaseUser):
       perfil = models.CharField(max_length=1, default='C')
       ativo = models.BooleanField(default=True)
       email = models.CharField(max_length=200)
-      celular models.SmallIntegerField("Ano")
+      celular = models.SmallIntegerField("Ano")
 
       USERNAME_FIELD = 'ra'
       REQUIRED_FIELDS = ['nome']
