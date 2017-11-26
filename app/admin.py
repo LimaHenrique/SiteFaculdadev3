@@ -7,7 +7,7 @@ class NovoAlunoForm(forms.ModelForm):
     
     class Meta:
         model = Aluno
-        fields = ('ra', 'nome','curso','perfil','email')
+        fields = ('ra', 'nome','curso','perfil','email','celular')
 
     def save(self, commit=True):
         user = super(NovoAlunoForm, self).save(commit=False)
@@ -21,7 +21,7 @@ class NovoProfessorForm(forms.ModelForm):
     
     class Meta:
         model = Professor
-        fields = ('ra', 'nome','apelido','email')
+        fields = ('ra', 'nome','apelido','email','celular')
 
     def save(self, commit=True):
         user = super(NovoProfessorForm, self).save(commit=False)
@@ -34,21 +34,21 @@ class NovoProfessorForm(forms.ModelForm):
 class AlterarAlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
-        fields = ('nome', 'curso','email')
+        fields = ('nome', 'curso','email','celular')
 
 class AlterarProfessorForm(forms.ModelForm):
     class Meta:
         model = Professor
-        fields = ('nome','apelido','email')
+        fields = ('nome','apelido','email','celular')
 
 class AlunoAdmin(UserAdmin):
     
     form =  AlterarAlunoForm
     add_form = NovoAlunoForm
-    list_display = ('ra', 'nome', 'curso','email')
+    list_display = ('ra', 'nome', 'curso','email','celular')
     list_filter = ('perfil',)
-    fieldsets = ( (None, {'fields': ('ra', 'nome', 'curso','password','email')}),)
-    add_fieldsets = ((None, { 'fields': ('ra', 'nome', 'curso','email')} ),)
+    fieldsets = ( (None, {'fields': ('ra', 'nome', 'curso','password','email','celular')}),)
+    add_fieldsets = ((None, { 'fields': ('ra', 'nome', 'curso','email','celular')} ),)
     search_fields = ('ra',)
     ordering = ('ra',)
     filter_horizontal = ()
@@ -57,10 +57,10 @@ class ProfessorAdmin(UserAdmin):
     
     form =  AlterarAlunoForm
     add_form = NovoAlunoForm
-    list_display = ('ra', 'nome','apelido','email')
+    list_display = ('ra', 'nome','apelido','email','celular')
     list_filter = ('perfil',)
-    fieldsets = ( (None, {'fields': ('ra', 'nome','password','apelido','email')}),)
-    add_fieldsets = ((None, { 'fields': ('ra', 'nome','apelido','email')} ),)
+    fieldsets = ( (None, {'fields': ('ra', 'nome','password','apelido','email','celular')}),)
+    add_fieldsets = ((None, { 'fields': ('ra', 'nome','apelido','email','celular')} ),)
     search_fields = ('ra',)
     ordering = ('ra',)
     filter_horizontal = ()
