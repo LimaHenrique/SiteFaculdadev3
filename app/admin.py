@@ -4,7 +4,6 @@ from django.contrib.auth.admin import UserAdmin
 from django import forms
 
 class NovoAlunoForm(forms.ModelForm):
-    
     class Meta:
         model = Aluno
         fields = ('ra', 'nome','curso','perfil','email','celular')
