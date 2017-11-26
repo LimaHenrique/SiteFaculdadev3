@@ -21,11 +21,11 @@ class UsuarioManager(BaseUserManager):
 
 
 class Usuario(AbstractBaseUser):
-	nome = models.CharField(max_length=50)
+ 	nome = models.CharField(max_length=50)
 	ra = models.IntegerField(unique=True)
 	email = models.CharField(max_length=150)
-
-    perfil = models.CharField(max_length=1, default='C')
+	celular = models.CharField(max_length=150)
+    	perfil = models.CharField(max_length=1,default='C')
 	ativo = models.BooleanField(default=True)
 
 	USERNAME_FIELD = 'ra'
