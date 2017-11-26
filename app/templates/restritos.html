@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block conteudo %}
+{%load static%}
+<br/><br/><br/>
+<h1>ÁREA RESTRITA</abbr>/h1>
+{% for curso in Curso  %}
+<div>
+	<h2>{{ curso.nome }}</h2>
+	<ul>
+		{% for questao in questoes %}
+			<li>{{ questao }}</li>
+			{% empty %}
+			<li>O curso {{ curso }} não possui questões.</li>
+		{% endfor %}
+	</ul>
+	<a href="questao_form.html">ADICIONAR QUESTÃO</a>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<div align="center">
+    <h1>Questão<h1>
+    <h2>{{ curso }}</h2>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Enviar" width="300px" height="200px"/>
+        <input type="reset" value="Limpar" width="300px"  height="200px"/>
+    </form>
+</div>
+{% endblock %}
