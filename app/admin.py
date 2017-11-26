@@ -4,6 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from django import forms
 
 class NovoAlunoForm(forms.ModelForm):
+    
     class Meta:
         model = Aluno
         fields = ('ra', 'nome','curso','perfil','email','celular')
@@ -46,7 +47,7 @@ class AlunoAdmin(UserAdmin):
     add_form = NovoAlunoForm
     list_display = ('ra', 'nome', 'curso','email','celular')
     list_filter = ('perfil',)
-    fieldsets = ( (None, {'fields': ('ra', 'nome', 'curso','password','email','celular')}),)
+    fieldsets = ( (None, {'fields': ('ra', 'nome', 'curso','email','celular','password')}),)
     add_fieldsets = ((None, { 'fields': ('ra', 'nome', 'curso','email','celular')} ),)
     search_fields = ('ra',)
     ordering = ('ra',)
@@ -56,7 +57,7 @@ class ProfessorAdmin(UserAdmin):
     
     form =  AlterarAlunoForm
     add_form = NovoAlunoForm
-    list_display = ('ra', 'nome','apelido','email','celular')
+    list_display = ('ra', 'nome','apelido')
     list_filter = ('perfil',)
     fieldsets = ( (None, {'fields': ('ra', 'nome','password','apelido','email','celular')}),)
     add_fieldsets = ((None, { 'fields': ('ra', 'nome','apelido','email','celular')} ),)
