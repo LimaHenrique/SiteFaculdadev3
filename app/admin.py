@@ -7,7 +7,7 @@ class NovoAlunoForm(forms.ModelForm):
     
     class Meta:
         model = Aluno
-        fields = ('ra', 'nome','curso','perfil')
+        fields = ('ra', 'nome','curso','perfil','email')
 
     def save(self, commit=True):
         user = super(NovoAlunoForm, self).save(commit=False)
@@ -21,7 +21,7 @@ class NovoProfessorForm(forms.ModelForm):
     
     class Meta:
         model = Professor
-        fields = ('ra', 'nome','disciplina','apelido')
+        fields = ('ra', 'nome','apelido','email')
 
     def save(self, commit=True):
         user = super(NovoProfessorForm, self).save(commit=False)
@@ -34,21 +34,21 @@ class NovoProfessorForm(forms.ModelForm):
 class AlterarAlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
-        fields = ('nome', 'curso')
+        fields = ('nome', 'curso','email')
 
 class AlterarProfessorForm(forms.ModelForm):
     class Meta:
         model = Professor
-        fields = ('nome', 'disciplina','apelido')
+        fields = ('nome','apelido','email')
 
 class AlunoAdmin(UserAdmin):
     
     form =  AlterarAlunoForm
     add_form = NovoAlunoForm
-    list_display = ('ra', 'nome', 'curso')
+    list_display = ('ra', 'nome', 'curso','email')
     list_filter = ('perfil',)
-    fieldsets = ( (None, {'fields': ('ra', 'nome', 'curso','password')}),)
-    add_fieldsets = ((None, { 'fields': ('ra', 'nome', 'curso')} ),)
+    fieldsets = ( (None, {'fields': ('ra', 'nome', 'curso','password','email')}),)
+    add_fieldsets = ((None, { 'fields': ('ra', 'nome', 'curso','email')} ),)
     search_fields = ('ra',)
     ordering = ('ra',)
     filter_horizontal = ()
@@ -57,39 +57,79 @@ class ProfessorAdmin(UserAdmin):
     
     form =  AlterarAlunoForm
     add_form = NovoAlunoForm
-    list_display = ('ra', 'nome', 'disciplina','apelido')
+    list_display = ('ra', 'nome','apelido','email')
     list_filter = ('perfil',)
-    fieldsets = ( (None, {'fields': ('ra', 'nome', 'disciplina','password','apelido')}),)
-    add_fieldsets = ((None, { 'fields': ('ra', 'nome', 'disciplina','apelido')} ),)
+    fieldsets = ( (None, {'fields': ('ra', 'nome','password','apelido','email')}),)
+    add_fieldsets = ((None, { 'fields': ('ra', 'nome','apelido','email')} ),)
     search_fields = ('ra',)
     ordering = ('ra',)
     filter_horizontal = ()
 
-class cursoAdmin(admin.ModelAdmin):
+class CursoAdmin(admin.ModelAdmin):
 
-    list_display = ('nome','tipo','carga_horaria') 
+    list_display = ('nome','sigla') 
 
 class DisciplinaAdmin(admin.ModelAdmin):
     
-    list_display = ('nome','conteudo','carga_horaria') 
+    list_display = ('nome','conteudo','carga_horaria','teoria','pratica','ementa','competencias','habilidades','bibliografia_basica','bibliografia_complementar') 
+
+class DisciplinaOfertadaAdmin(admin.ModelAdmin):
+
+    list_display = ('semestre','disciplina','ano') 
 
 class TurmaAdmin(admin.ModelAdmin):
     
-    list_display = ('turma','limite') 
+    list_display = ('turma','disciplina','professor','disciplinaOfertada') 
 
-class TPAAdmin(admin.ModelAdmin):
+class QuestaoAdmin(admin.ModelAdmin):
     
-    list_display = ('disciplina','turma','curso','professor') 
-
-class CurDisAdmin(admin.ModelAdmin):
+    list_display = ('data_limite_entrega','data','turma','numero','descricao')     
     
-    list_display = ('disciplina','curso') 
+class RespostaAdmin(admin.ModelAdmin):
 
+    list_display = ('data_avaliacao','nota','data_de_envio','questao','aluno','avaliacao','descricao') 
+
+class ArquivosQuestaoAdmin(admin.ModelAdmin):
+    
+    list_display = ('arquivo','questao','numero_questao')     
+    
+class ArquivosRespostaAdmin(admin.ModelAdmin):
+
+    list_display = ('arquivo','resposta') 
+
+class GradeCurricularAdmin(admin.ModelAdmin):
+    
+    list_display = ('semestre','curso','ano')   
+
+class CursoTurmaAdmin(admin.ModelAdmin):
+    
+    list_display = ('curso','turma')   
+
+class MatriculaAdmin(admin.ModelAdmin):
+    
+    list_display = ('aluno','turma')   
+
+class PeriodoAdmin(admin.ModelAdmin):
+    
+    list_display = ('gradecurricular','numero')   
+
+class PeriodoDisciplinaAdmin(admin.ModelAdmin):
+    
+    list_display = ('disciplina','gradecurricular')   
+                                
 # Register your models here.
-admin.site.register(Curso,cursoAdmin)
+admin.site.register(Curso,CursoAdmin)
 admin.site.register(Aluno,AlunoAdmin)
 admin.site.register(Professor,ProfessorAdmin)
 admin.site.register(Disciplina,DisciplinaAdmin)
+admin.site.register(DisciplinaOfertada,DisciplinaOfertadaAdmin)
 admin.site.register(Turma,TurmaAdmin)
-admin.site.register(TPA,TPAAdmin)
-admin.site.register(CurDis,CurDisAdmin)
+admin.site.register(Questao,QuestaoAdmin)
+admin.site.register(Resposta,RespostaAdmin)
+admin.site.register(ArquivosQuestao,ArquivosQuestaoAdmin)
+admin.site.register(ArquivosResposta,ArquivosRespostaAdmin)
+admin.site.register(GradeCurricular,GradeCurricularAdmin)
+admin.site.register(CursoTurma,CursoTurmaAdmin)
+admin.site.register(Matricula,MatriculaAdmin)
+admin.site.register(Periodo,PeriodoAdmin)
+admin.site.register(PeriodoDisciplina,PeriodoDisciplinaAdmin)
