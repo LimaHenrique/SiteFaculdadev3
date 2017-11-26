@@ -55,7 +55,7 @@ class Curso(models.Model):
       sigla = models.CharField(primary_key=True,max_length=5)
       nome = models.CharField(unique=True,max_length=50)                  
       def _str_(self):
-            return self.sigla
+            return self.nome
       
 class GradeCurricular(models.Model):
       ano = models.SmallIntegerField("Ano")
@@ -93,11 +93,11 @@ class DisciplinaOfertada(models.Model):
       semestre = models.CharField(max_length=1)
       disciplina = models.ForeignKey(Disciplina)
       def _str_(self):
-            return self.ano
+            return self.semestre
       
 class Aluno(Usuario):
       curso = models.ForeignKey(Curso)
-      
+
 class Professor(Usuario):
       apelido = models.CharField(unique=True,max_length=30)
       
@@ -112,12 +112,12 @@ class Turma(models.Model):
 class Matricula(models.Model):
       aluno = models.ForeignKey(Aluno)
       turma = models.ForeignKey(Turma)
+      def _str_(self):
+            return self.aluno
       
 class CursoTurma(models.Model):
       curso = models.ForeignKey(Curso)
       turma = models.ForeignKey(Turma)
-      def _str_(self):
-            return self.curso
       
 class Questao(models.Model):
       numero = models.IntegerField("Numero")
@@ -140,8 +140,8 @@ class Resposta(models.Model):
       aluno = models.ForeignKey(Aluno)
       data_avaliacao = models.DateField(auto_now=False, auto_now_add=False)
       nota = models.DecimalField(max_digits=4, decimal_places=2)
-      avaliacao = models.TextField(blank=True)
-      descricao = models.TextField(blank=True)
+      avaliacao = models.CharField(max_length=1000)
+      descricao = models.CharField(max_length=1000)
       data_de_envio = models.DateField(auto_now=False, auto_now_add=False)
       def _str_(self):
             return self.avaliacao
@@ -150,4 +150,4 @@ class ArquivosResposta(models.Model):
       resposta = models.ForeignKey(Resposta)      
       arquivo = models.CharField(max_length=500)
       def _str_(self):
-            return self.resposta
+            return self.arquivo
