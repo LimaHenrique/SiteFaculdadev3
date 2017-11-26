@@ -5,7 +5,7 @@ def index(request):
 
     context = {
         
-       "User" : Aluno.objects.all()
+        "User" : Aluno.objects.all()
         
     }
     return render(request, "index.html")
@@ -35,12 +35,14 @@ def inscricao(request):
     context = {"inscricao.html" : form }
     return render(request, "inscricao.html" , context)
 
-def logado(request):
+def AreaLogin(request):
     form = Contato()
     context = {"inscricao.html" : form }
-    return render(request, "logado.html" , context)      
+    return render(request, "AreaLogin.html" , context) 
+
 
 def disciplinas(request):
     form = Contato()
     context = {"disciplinas.html" : form }
-    return render(request, "disciplinas.html" , context)
+    return render(request, "disciplinas.html" , context)	
+	
