@@ -55,8 +55,8 @@ class AlunoAdmin(UserAdmin):
 
 class ProfessorAdmin(UserAdmin):
     
-    form =  AlterarAlunoForm
-    add_form = NovoAlunoForm
+    form =  AlterarProfessorForm
+    add_form = NovoProfessorForm
     list_display = ('ra', 'nome','apelido')
     list_filter = ('perfil',)
     fieldsets = ( (None, {'fields': ('ra', 'nome','password','apelido','email','celular')}),)
