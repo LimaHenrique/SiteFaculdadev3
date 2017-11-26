@@ -1,28 +1,27 @@
-[18:52, 21/11/2017] Pedro Furlan: {% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block conteudo %}
-    {% if not user.is_authenticated%}
-            <h1 align="center">Favor Fazer Login!</h1>
-        {% else %}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-            {% if user.perfil == 'A' %}
-            <br/><br/><br/><br/><br/>
-            <h1 align="center">Conteúdo para Alunos!</h1>
-            <h1 align="center"><a href = 'disciplinas.html'>Registrar Disciplinas</a></h1>
-            <br/><br/><br/><br/><br/>
-            {% endif %}
 
-            {% if user.perfil == 'P' %}
-            <br/><br/><br/><br/><br/>
-            <h1 align="center">Conteúdo para Professores!</h1>
-            <br/><br/><br/><br/><br/>
-            {% endif %}
+<h1 align="center">Aqui ira o Conteudo do usuario logado!</h1>
 
-            {% if user.perfil == 'C' %}
-            <br/><br/><br/><br/><br/>
-            <h1 align="center">Conteúdo para Coordenadores!</h1>
-            <br/><br/><br/><br/><br/>
-            {% endif %}
+<br>
 
-    {% endif %}
+<h1 align="center"><a href = 'disciplinas.html'>Registrar Disciplinas</a></h1>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
 {%endblock%}
