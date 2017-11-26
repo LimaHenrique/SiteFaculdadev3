@@ -54,15 +54,15 @@ class Usuario(AbstractBaseUser):
 class Curso(models.Model):
       sigla = models.CharField(max_length=5)
       nome = models.CharField(max_length=50)                  
-      def _str_(self):
-            return self.sigla
+      def __str__(self):
+        return self.nome
       
 class GradeCurricular(models.Model):
       ano = models.SmallIntegerField("Ano")
       semestre = models.CharField(max_length=1)
       curso = models.ForeignKey(Curso)
-      def _str_(self):
-            return self.semestre
+      def __str__(self):
+        return self.semestre
 
 class Periodo(models.Model):
       numero = models.IntegerField("Numero")
@@ -79,8 +79,8 @@ class Disciplina(models.Model):
       conteudo = models.TextField(blank=True)
       bibliografia_basica = models.TextField(blank=True)
       bibliografia_complementar = models.TextField(blank=True)
-      def _str_(self):
-            return self.nome
+      def __str__(self):
+        return self.nome
 
 class PeriodoDisciplina(models.Model):
       gradecurricular = models.ForeignKey(GradeCurricular)
@@ -90,7 +90,9 @@ class DisciplinaOfertada(models.Model):
       ano = models.SmallIntegerField("Ano")
       semestre = models.CharField(max_length=1)
       disciplina = models.ForeignKey(Disciplina)
-      
+      def __str__(self):
+        return self.ano
+
 class Aluno(Usuario):
       curso = models.ForeignKey(Curso)
 
@@ -102,8 +104,8 @@ class Turma(models.Model):
       disciplina = models.ForeignKey(Disciplina)
       disciplinaOfertada = models.ForeignKey(DisciplinaOfertada)
       professor = models.ForeignKey(Professor)
-      def _str_(self):
-            return self.turma
+      def __str__(self):
+        return self.turma
       
 class Matricula(models.Model):
       aluno = models.ForeignKey(Aluno)
@@ -119,15 +121,15 @@ class Questao(models.Model):
       descricao = models.TextField(blank=True)
       data = models.DateField(auto_now=False, auto_now_add=False)
       turma = models.ForeignKey(Turma)
-      def _str_(self):
-            return self.numero
+      def __str__(self):
+        return self.numero
       
 class ArquivosQuestao(models.Model):
       numero_questao = models.IntegerField("NumeroQuestao")
       arquivo = models.CharField(max_length=500)
       questao = models.ForeignKey(Questao)
-      def _str_(self):
-            return self.arquivo
+      def __str__(self):
+        return self.numero_questao
       
 class Resposta(models.Model):
       questao = models.ForeignKey(Questao)
@@ -141,5 +143,5 @@ class Resposta(models.Model):
 class ArquivosResposta(models.Model):
       resposta = models.ForeignKey(Resposta)      
       arquivo = models.CharField(max_length=500)
-      def _str_(self):
-            return self.arquivo
+      def __str__(self):
+        return self.arquivo
