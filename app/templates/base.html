@@ -1,123 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang = "pt-br">
-<head>
-	<meta charset = "utf-8">
-    <title>Faculdade Impacta</title>
-    {% load static %}
-    <link rel="shortcut icon" href="{% static '..\static\logo.jpg' %} " type="image/jpg" style="width:100%"/>
-    <link rel="stylesheet" type="text/css"  href="{% static '..\static\form.css' %}"/>  
-	<link rel="stylesheet" type="text/css"  href="{% static '..\static\index.css' %}"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-</head>
-<body>
-<script>
-function myFunction() {
-    var x = document.getElementById("Demo");
-    if (x.className.indexOf("w3-show") == -1) {  
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
+<html>
+    <head>
+        <title>LMS {% block titulo %}{% endblock %} </title>
+        <link rel="stylesheet" href="{% static 'site.css' %}" />
+    </head>
+    <body>
+        <header>
+            <h1>Faculdade Impacta</h1>
+            <nav>
+                <a href="/">Index</a>
+                <a href="/contato">Contato</a>
+                {% if not user.is_authenticated %}
+                    <a href="/entrar">Login</a>
+                {% else %}
+                    Olá, {{ user }}
+                    <a href="/sair">Sair</a>
+                    <a href="{% url 'restrito' %}">Restrito</a>
+                {% endif %}
+            </nav>
+        </header>
+        <main>
+            {% block main %}
 
-<nav class="menu">
-        <ul>
-        <li><a href="index.html">A Faculdade LMS</a></li>
-        <li><a href="#">Alunos</a><ul>
-            <a href="#"><li>Boletim</li></a></ul></li>
-        <li><a href="#">Professores</a><ul>
-            <a href="#"><li>Disciplinas</li></a></ul></li>
-        <li><a href="#">Cursos</a><ul>
-            <a href="#"><li>Graduação</li></a>
-            <a href="#"><li>Pós-Graduação</li></a></ul></li>
-        <br/>
-        {% if not user.is_authenticated %}
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" style="color:black" value="Entrar"/>
-        </form>		
-        {% else %}
-            Bem Vindo, {{user}} ! <br/><br/>
-        {% if user.perfil == 'A' %}
-        Perfil Aluno<br/><br/><br/>
-            <a href="logado.html" style="color:black;">Area do Aluno</a><br/><br/><br/>
-        {% endif %}
-        {% if user.perfil == 'P' %}
-        Perfil	Professor<br/><br/><br/>
-            <a href="logado.html" style="color:black;">Area do Professor</a><br/><br/><br/>
-        {% endif %}
-            <a href="sair/" style="color:black;">Clique para Sair</a><br/>
-        {% endif %}	
-        <br/><br/>
-    </ul>
-</nav>
-
-
-{% block conteudo %}
-
-{% endblock %}
-
-
-<footer id="baixo">
-	<div id = "partes" class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-		<p align="justify">
-		<h3 style="font-size:20px"><b>SOBRE</b></h3>
-		<p align="justify">
-		A Faculdade Impacta Tecnologia nasceu da percepção de um Grupo, que desde 1998 é referência em TI, Gestão e Design, para suprir a falta de mão de obra especializada do mercado de tecnologia e oferecer uma formação completa e multidisciplinar aos alunos.</p>
-		<hr />
-	<h3 style="font-size:20px"><b></b>SIGA A IMPACTA</b></h3>
-		<a href = "#"><img id="icon1" src = "{% static '..\static\twitter.png' %}"/></a>
-		<a href = "#"><img id = "icon2" src = "{% static '..\static\youtube.png' %}"/></a>
-		<a href = "#"><img id = "icon3" src = "{% static '..\static\facebook.png' %}"/></a>
-		<a href = "#"><img id = "icon4" src = "{% static '..\static\instagram.png' %}"/></a>
-		<a href = "#"><img id = "icon5" src = "{% static '..\static\linkedin.png' %}"/></a>
-	</div>
-
-	<div>
-		<p align="justify">
-		<h3 style="font-size:20px"><b>NAVEGAÇÃO</b></h3>
-		<a href = "#">A Impacta</a><br> 
-		<a href = "#">Cursos</a><br>
-		<a href = "#">Eventos</a><br>
-		<a href = "#">Notícias</a><br>
-		<a href = "#">Blog</a><br>
-		<a href = "#">Contato</a><br>
-	</div>
-
-	<div>
-		<p align="justify">
-		<h3 style="font-size:20px"><b>CONTATO</b></h3>
-		<h4 style="font-size:16px"><b>Comercial</b></h4>
-		Tel: 11 3254-8300
-		<p>
-		<h4 style="font-size:16px"><b>Secretaria</b></h4>
-		Tel: 11 5593-5345
-		<br/><br/>
-		Unidade - Barra Funda<br/>
-		Avenida Rudge, 315 - Barra Funda<br/>
-		São Paulo / SP
-	</div>
-
-	<div>
-		<p align="justify">
-		<h3 style="font-size:20px"><b>ATENDIMENTO</h3></b>
-		<h4 style="font-size:16px"><b>Secretaria da Graduação</h4></b> 
-		De segunda à sexta – das 09h00 às 21h00<p>
-		Sábado – das 09h00 às 13h00
-
-		<h4 style="font-size:16px"><b>Secretaria de Pós-graduação</h4></b> 
-		De segunda à sexta – das 13h00 às 21h00<p>
-		Sábado – das 09h00 às 13h00
-
-		<h4 style="font-size:16px"><b>Ouvidoria</h4></b>
-		De segunda à sexta – das 09h00 às 18h00<p>
-		Telefone - (11) 5593-5370
-		<br/><br/><br/><br/>
-	</div>
-</footer>
-</body>
+            {% endblock %}
+        </main>
+        <footer>
+            Todos os direitos reservados
+        </footer>
+    </body>
 </html>
