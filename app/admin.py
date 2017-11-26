@@ -7,7 +7,7 @@ class NovoAlunoForm(forms.ModelForm):
     
     class Meta:
         model = Aluno
-        fields = ('ra', 'nome','curso','perfil')
+        fields = ('ra', 'nome','curso','perfil','email')
 
     def save(self, commit=True):
         user = super(NovoAlunoForm, self).save(commit=False)
@@ -21,7 +21,7 @@ class NovoProfessorForm(forms.ModelForm):
     
     class Meta:
         model = Professor
-        fields = ('ra', 'nome','apelido')
+        fields = ('ra', 'nome','apelido','email')
 
     def save(self, commit=True):
         user = super(NovoProfessorForm, self).save(commit=False)
@@ -34,21 +34,21 @@ class NovoProfessorForm(forms.ModelForm):
 class AlterarAlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
-        fields = ('nome', 'curso')
+        fields = ('nome', 'curso','email')
 
 class AlterarProfessorForm(forms.ModelForm):
     class Meta:
         model = Professor
-        fields = ('nome','apelido')
+        fields = ('nome','apelido','email')
 
 class AlunoAdmin(UserAdmin):
     
     form =  AlterarAlunoForm
     add_form = NovoAlunoForm
-    list_display = ('ra', 'nome', 'curso')
+    list_display = ('ra', 'nome', 'curso','email')
     list_filter = ('perfil',)
-    fieldsets = ( (None, {'fields': ('ra', 'nome', 'curso','password')}),)
-    add_fieldsets = ((None, { 'fields': ('ra', 'nome', 'curso')} ),)
+    fieldsets = ( (None, {'fields': ('ra', 'nome', 'curso','password','email')}),)
+    add_fieldsets = ((None, { 'fields': ('ra', 'nome', 'curso','email')} ),)
     search_fields = ('ra',)
     ordering = ('ra',)
     filter_horizontal = ()
@@ -57,10 +57,10 @@ class ProfessorAdmin(UserAdmin):
     
     form =  AlterarAlunoForm
     add_form = NovoAlunoForm
-    list_display = ('ra', 'nome','apelido')
+    list_display = ('ra', 'nome','apelido','email')
     list_filter = ('perfil',)
-    fieldsets = ( (None, {'fields': ('ra', 'nome','password','apelido')}),)
-    add_fieldsets = ((None, { 'fields': ('ra', 'nome','apelido')} ),)
+    fieldsets = ( (None, {'fields': ('ra', 'nome','password','apelido','email')}),)
+    add_fieldsets = ((None, { 'fields': ('ra', 'nome','apelido','email')} ),)
     search_fields = ('ra',)
     ordering = ('ra',)
     filter_horizontal = ()
@@ -71,27 +71,27 @@ class CursoAdmin(admin.ModelAdmin):
 
 class DisciplinaAdmin(admin.ModelAdmin):
     
-    list_display = ('nome','conteudo','carga_horaria') 
+    list_display = ('nome','conteudo','carga_horaria','teoria','pratica','ementa','competencias','habilidades','bibliografia_basica','bibliografia_complementar') 
 
 class DisciplinaOfertadaAdmin(admin.ModelAdmin):
 
-    list_display = ('semestre','disciplina') 
+    list_display = ('semestre','disciplina','ano') 
 
 class TurmaAdmin(admin.ModelAdmin):
     
-    list_display = ('turma','disciplina','professor') 
+    list_display = ('turma','disciplina','professor','disciplinaOfertada') 
 
 class QuestaoAdmin(admin.ModelAdmin):
     
-    list_display = ('data_limite_entrega','data','turma')     
+    list_display = ('data_limite_entrega','data','turma','numero','descricao')     
     
 class RespostaAdmin(admin.ModelAdmin):
 
-    list_display = ('data_avaliacao','nota','data_de_envio','questao','aluno') 
+    list_display = ('data_avaliacao','nota','data_de_envio','questao','aluno','avaliacao','descricao') 
 
 class ArquivosQuestaoAdmin(admin.ModelAdmin):
     
-    list_display = ('arquivo','questao')     
+    list_display = ('arquivo','questao','numero_questao')     
     
 class ArquivosRespostaAdmin(admin.ModelAdmin):
 
@@ -99,7 +99,7 @@ class ArquivosRespostaAdmin(admin.ModelAdmin):
 
 class GradeCurricularAdmin(admin.ModelAdmin):
     
-    list_display = ('semestre','curso')   
+    list_display = ('semestre','curso','ano')   
 
 class CursoTurmaAdmin(admin.ModelAdmin):
     
