@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 # Create your models here.
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 class UsuarioManager(BaseUserManager):
     
     use_in_migrations = True
