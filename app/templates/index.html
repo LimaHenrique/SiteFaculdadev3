@@ -1,22 +1,26 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block conteudo %}
+{% block titulo %} HomePage {% endblock %}
 
-{%load static%}
+{% block main %}
+    <h1>Olá Django</h1>
 
-<h1 id= "principal"><b>FACULDADE IMPACTA</b></h1>
+    {% if usuario %}
+        <p> Olá {{ usuario | upper }}, tudo bem? </p>
+    {% endif %}
 
-<div>
-	<a href = "#"><img id = "card1" src = "{% static '..\static\card1.jpg' %}"/></a>
-	<a href = "#"><img id = "card1" src = "{% static '..\static\card22.jpg' %}"/></a>
-	<a href = "#"><img id = "card1" src = "{% static '..\static\card3.jpg' %}"/></a>
-	<a href = "#"><img id = "card1" src = "{% static '..\static\card4.jpg' %}"/></a>
-</div>
-
-<h1 id= "principal"><b>VESTIBULAR</b></h1><br>
-<a href = "inscricao.html"><h3 id="evento" style="text-decoration: none"><b>INSCRIÇÕES ABERTAS</b></h3></a><br><br>
-
-<h1 id= "principal2"><b>EVENTOS</b></h1><br>
-<a href = "#"><h3 id= "evento"><b>> Veja todos os eventos <</b></h3></a><br><br>
-
+    <ul>
+        {% for curso in cursos %}
+            {% if curso.ativo %}
+                <li class="{{ curso.classe }}" > {{ curso.nome }} - {{ curso.tipo }} </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% if perfil == 'A' %}
+        <p>COnteúdo para Alunos!</p>
+    {% elif perfil == 'F' %}
+        <p>COnteúdo para Professores!</p>
+    {% else %}
+        <p>COnteúdo para Coordenadores!</p>
+    {% endif %}
 {% endblock %}
