@@ -55,7 +55,7 @@ class Curso(models.Model):
       sigla = models.CharField(max_length=5)
       nome = models.CharField(max_length=50)                  
       def _str_(self):
-            return self.nome
+            return self.sigla
       
 class GradeCurricular(models.Model):
       ano = models.SmallIntegerField("Ano")
@@ -93,7 +93,7 @@ class DisciplinaOfertada(models.Model):
       semestre = models.CharField(max_length=1)
       disciplina = models.ForeignKey(Disciplina)
       def _str_(self):
-            return self.semestre
+            return self.ano
       
 class Aluno(Usuario):
       curso = models.ForeignKey(Curso)
@@ -112,8 +112,6 @@ class Turma(models.Model):
 class Matricula(models.Model):
       aluno = models.ForeignKey(Aluno)
       turma = models.ForeignKey(Turma)
-      def _str_(self):
-            return self.aluno
       
 class CursoTurma(models.Model):
       curso = models.ForeignKey(Curso)
@@ -133,7 +131,7 @@ class ArquivosQuestao(models.Model):
       arquivo = models.CharField(max_length=500)
       questao = models.ForeignKey(Questao)
       def _str_(self):
-            return self.numero_questao
+            return self.arquivo
       
 class Resposta(models.Model):
       questao = models.ForeignKey(Questao)
