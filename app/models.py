@@ -87,6 +87,8 @@ class Disciplina(models.Model):
 class PeriodoDisciplina(models.Model):
       gradecurricular = models.ForeignKey(GradeCurricular)
       disciplina = models.ForeignKey(Disciplina)
+      def _str_(self):
+            return self.gradecurricular
       
 class DisciplinaOfertada(models.Model):
       ano = models.SmallIntegerField("Ano")
@@ -97,7 +99,7 @@ class DisciplinaOfertada(models.Model):
       
 class Aluno(Usuario):
       curso = models.ForeignKey(Curso)
-
+      
 class Professor(Usuario):
       apelido = models.CharField(unique=True,max_length=30)
       
@@ -118,6 +120,8 @@ class Matricula(models.Model):
 class CursoTurma(models.Model):
       curso = models.ForeignKey(Curso)
       turma = models.ForeignKey(Turma)
+      def _str_(self):
+            return self.curso
       
 class Questao(models.Model):
       numero = models.IntegerField("Numero")
