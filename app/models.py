@@ -22,7 +22,6 @@ class UsuarioManager(BaseUserManager):
 class Usuario(AbstractBaseUser):
       nome = models.CharField(max_length=50)
       ra = models.IntegerField(unique=True)
-      password = models.CharField(max_length=100)
       perfil = models.CharField(max_length=1, default='C')
       ativo = models.BooleanField(default=True)
 
