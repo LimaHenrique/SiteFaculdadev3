@@ -90,7 +90,7 @@ class PeriodoDisciplina(models.Model):
       
 class DisciplinaOfertada(models.Model):
       ano = models.SmallIntegerField("Ano")
-      semestre = models.CharField(max_length=1)
+      semestre = models.CharField(max_length=2)
       disciplina = models.ForeignKey(Disciplina)
       def __str__(self):
             return self.semestre
