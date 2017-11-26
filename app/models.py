@@ -52,7 +52,7 @@ class Usuario(AbstractBaseUser):
       def get_full_name(self):
             return self.nome
 
-      def _str_(self):
+      def __str__(self):
             return self.nome
 
 class Curso(models.Model):
