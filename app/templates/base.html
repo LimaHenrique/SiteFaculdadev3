@@ -25,61 +25,38 @@ function myFunction() {
 }
 </script>
 
-	<nav class = "menu">
-		<ul style="text-align: center">
-			<br/>
-			<img class = "logo" src = "{% static '..\static\logo-novo.png' %}" style="height: 50px; width: 180px"/>
-			<a href = "index.html"><li style="font-size:17px">A Impacta</li></a>
-			<a href = "cursos.html"><li style="font-size:17px">Cursos</li></a>
-			<a href = "eventos.html"><li style="font-size:17px">Eventos</li></a>
-			<a href = "blog.html"><li style="font-size:17px">Blog</li></a>
-			<a href = "contato.html"><li style="font-size:17px">Contato</li></a>
-			
-			<div class="w3-dropdown-click">
-			<button onclick="myFunction()" class="w3-button "><img class = "login "src = "{% static '..\static\login.png' %}"/></button>
-			<div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
-
-		  {% if not user.is_authenticated %}
-
-		<form method="POST">
-
-		 {% csrf_token %}
-
-		  {{ form.as_p }}
-		  
-		  <input type="submit" style="color:black" value="Entrar"/>
-				
-		</form>		
-		   {% else %}
-
-		   	Bem Vindo, {{user}} ! <br/><br/>
-
-			{% if user.perfil == 'A' %}
-
-				Perfil Aluno<br/><br/><br/>
-
-				 <a href="logado.html" style="color:black;">Area do Aluno</a><br/><br/><br/>
-
-
-			 {% endif %}
-
-			{% if user.perfil == 'P' %}
-
-				Perfil	Professor<br/><br/><br/>
-
-				 <a href="logado.html" style="color:black;">Area do Professor</a><br/><br/><br/>
-
-			 {% endif %}
-		    
-		   <a href="sair/" style="color:black;">Clique para Sair</a><br/>
-
-			{% endif %}
-			</div>
-			</div>	
-			<br/><br/>
-		</ul>
-	</nav>
-	<br><br>
+<nav class="menu">
+        <ul>
+        <li><a href="index.html">A Faculdade LMS</a></li>
+        <li><a href="#">Alunos</a><ul>
+            <a href="#"><li>Boletim</li></a></ul></li>
+        <li><a href="#">Professores</a><ul>
+            <a href="#"><li>Disciplinas</li></a></ul></li>
+        <li><a href="#">Cursos</a><ul>
+            <a href="#"><li>Graduação</li></a>
+            <a href="#"><li>Pós-Graduação</li></a></ul></li>
+        <br/>
+        {% if not user.is_authenticated %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" style="color:black" value="Entrar"/>
+        </form>		
+        {% else %}
+            Bem Vindo, {{user}} ! <br/><br/>
+        {% if user.perfil == 'A' %}
+        Perfil Aluno<br/><br/><br/>
+            <a href="logado.html" style="color:black;">Area do Aluno</a><br/><br/><br/>
+        {% endif %}
+        {% if user.perfil == 'P' %}
+        Perfil	Professor<br/><br/><br/>
+            <a href="logado.html" style="color:black;">Area do Professor</a><br/><br/><br/>
+        {% endif %}
+            <a href="sair/" style="color:black;">Clique para Sair</a><br/>
+        {% endif %}	
+        <br/><br/>
+    </ul>
+</nav>
 
 
 {% block conteudo %}
