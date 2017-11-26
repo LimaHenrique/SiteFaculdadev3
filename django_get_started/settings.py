@@ -137,7 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Specify the default test runner.
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-STATIC_URL = 'app/static/'
+STATIC_URL = '/static/'
 
 # Login
 AUTH_USER_MODEL = 'app.Usuario'
