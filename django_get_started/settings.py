@@ -17,13 +17,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(__file__)
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.Emailbackend"
-EMAIL_USER_TLS = True
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "email"
-EMAIL_HOST_PASSWORD = "senha"
-EMAIL_PORT = 587
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'zne*e2op%jdw&=z4^3p$l@!@$l+15f)w@c3-w-zd137-n8ej0$2'
 
@@ -109,4 +102,11 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'app.Usuario'
 
 LOGIN_REDIRECT_URL= 'logado.html'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.Emailbackend"
+EMAIL_USER_TLS = True
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "email"
+EMAIL_HOST_PASSWORD = "senha"
+EMAIL_PORT = 587
 
