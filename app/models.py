@@ -96,7 +96,7 @@ class DisciplinaOfertada(models.Model):
     semestre = models.CharField(max_length=1)
     disciplina = models.ForeignKey(Disciplina)
     def __str__(self):
-       	return self.ano
+       	return self.semestre
 
 class Aluno(Usuario):
 
@@ -129,16 +129,12 @@ class Questao(models.Model):
     descricao = models.TextField(blank=True)
     data = models.DateField(auto_now=False, auto_now_add=False)
     turma = models.ForeignKey(Turma)
-    def __str__(self):
-        return self.numero
       
 class ArquivosQuestao(models.Model):
     numero_questao = models.IntegerField("NumeroQuestao")
     arquivo = models.CharField(max_length=500)
     questao = models.ForeignKey(Questao)
-    def __str__(self):
-        return self.numero_questao
-      
+
 class Resposta(models.Model):
     questao = models.ForeignKey(Questao)
     aluno = models.ForeignKey(Aluno)
@@ -151,5 +147,3 @@ class Resposta(models.Model):
 class ArquivosResposta(models.Model):
     resposta = models.ForeignKey(Resposta)      
     arquivo = models.CharField(max_length=500)
-    def __str__(self):
-        return self.arquivo
