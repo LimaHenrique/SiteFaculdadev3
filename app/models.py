@@ -38,35 +38,35 @@ class Usuario(AbstractBaseUser):
 
       @property
       def is_staff(self):
-            return self.perfil == 'C'
+	return self.perfil == 'C'
 
       def has_perm(self, perm, obj=None):
-            return True
+        return True
       
       def has_module_perms(self, app_label):
-            return True
+        return True
   
       def get_short_name(self):
-            return self.nome
+        return self.nome
       
       def get_full_name(self):
-            return self.nome
+        return self.nome
 
-      def __str__(self):
-            return self.nome
+      def __unicode__(self):
+        return unicode(self.nome)
 
 class Curso(models.Model):
     sigla = models.CharField(primary_key=True,max_length=5)
     nome = models.CharField(unique=True,max_length=50)                  
-    def __str__(self):
-	return self.nome
+    def __unicode__(self):
+      	return unicode(self.nome)
       
 class GradeCurricular(models.Model):
     ano = models.SmallIntegerField("Ano")
     semestre = models.CharField(max_length=1)
     curso = models.ForeignKey(Curso)
-    def __str__(self):
-	return self.semestre
+    def __unicode__(self):
+      	return unicode(self.semestre)
 
 class Periodo(models.Model):
     numero = models.IntegerField("Numero")
@@ -83,8 +83,8 @@ class Disciplina(models.Model):
     conteudo = models.TextField(blank=True)
     bibliografia_basica = models.TextField(blank=True)
     bibliografia_complementar = models.TextField(blank=True)
-    def __str__(self):
-	return self.nome
+    def __unicode__(self):
+      	return unicode(self.nome)
 
 class PeriodoDisciplina(models.Model):
     gradecurricular = models.ForeignKey(GradeCurricular)
@@ -94,8 +94,8 @@ class DisciplinaOfertada(models.Model):
     ano = models.SmallIntegerField("Ano")
     semestre = models.CharField(max_length=1)
     disciplina = models.ForeignKey(Disciplina)
-    def __str__(self):
-       	return self.semestre
+    def __unicode__(self):
+      	return unicode(self.semestre)
 
 class Aluno(Usuario):
 
@@ -111,8 +111,8 @@ class Turma(models.Model):
     disciplina = models.ForeignKey(Disciplina)
     disciplinaOfertada = models.ForeignKey(DisciplinaOfertada)
     professor = models.ForeignKey(Professor)
-    def __str__(self):
-        return self.turma
+    def __unicode__(self):
+      	return unicode(self.turma)
       
 class Matricula(models.Model):
     aluno = models.ForeignKey(Aluno)
