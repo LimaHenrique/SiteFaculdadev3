@@ -98,15 +98,5 @@ USE_TZ = True
 
 #STATIC_URL = 'app/static/'
 STATIC_URL = '/static/'
-
 AUTH_USER_MODEL = 'app.Usuario'
-
 LOGIN_REDIRECT_URL= 'logado.html'
-
-EMAIL_BACKEND = "django.core.mail.backends.smtp.Emailbackend"
-EMAIL_USER_TLS = True
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "email"
-EMAIL_HOST_PASSWORD = "senha"
-EMAIL_PORT = 587
-
