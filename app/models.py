@@ -20,36 +20,36 @@ class UsuarioManager(BaseUserManager):
 
 
 class Usuario(AbstractBaseUser):
-      nome = models.CharField(max_length=50)
-      ra = models.IntegerField(unique=True)
-      perfil = models.CharField(max_length=1, default='C')
-      ativo = models.BooleanField(default=True)
-      email = models.CharField(max_length=80)
-      celular = models.CharField(max_length=11)
 
-      USERNAME_FIELD = 'ra'
-      REQUIRED_FIELDS = ['nome']
+    nome = models.CharField(max_length=50)
+    ra = models.IntegerField(unique=True)
+    email = models.CharField(max_length=150)
+    perfil = models.CharField(max_length=1, default='C')
+    ativo = models.BooleanField(default=True)
 
-      objects = UsuarioManager()
+    USERNAME_FIELD = 'ra'
+    REQUIRED_FIELDS = ['nome']
 
-      @property
-      def is_staff(self):
-            return self.perfil == 'C'
+    objects = UsuarioManager()
 
-      def has_perm(self, perm, obj=None):
-            return True
-      
-      def has_module_perms(self, app_label):
-            return True
-  
-      def get_short_name(self):
-            return self.nome
-      
-      def get_full_name(self):
-            return self.nome
+    @property
+    def is_staff(self):
+        return self.perfil == 'C'
 
-      def _str_(self):
-            return self.nome
+    def has_perm(self, perm, obj=None):
+        return True
+
+    def has_module_perms(self, app_label):
+	    return True
+
+    def get_short_name(self):
+        return self.nome
+
+    def get_full_name(self):
+        return self.nome
+
+    def __str__(self):
+        return self.nome
 
 class Curso(models.Model):
       sigla = models.CharField(max_length=5)
