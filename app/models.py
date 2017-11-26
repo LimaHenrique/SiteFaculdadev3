@@ -28,8 +28,8 @@ class Usuario(AbstractBaseUser):
       ra = models.IntegerField(unique=True)
       perfil = models.CharField(max_length=1, default='C')
       ativo = models.BooleanField(default=True)
-      email = models.CharField(max_length=80)
-      celular = models.CharField(max_length=11)
+      email = models.CharField(max_length=200)
+      celular models.SmallIntegerField("Ano")
 
       USERNAME_FIELD = 'ra'
       REQUIRED_FIELDS = ['nome']
