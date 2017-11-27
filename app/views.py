@@ -49,31 +49,10 @@ def disciplinas(request):
     return render(request, "disciplinas.html" , context)	
 	
 def restrito(request):
-    cursos = Curso.objects.all()
-    for curso in cursos:
-        curso.questoes = Questao.objects.filter(turma=turma)
-    contexto = {
-        "Cursos": cursos
-    }
+    
     return render(request, "restrito.html", contexto)
 
 
 def questao_form(request,sigla=None,questao_id=None):
-    curso = Curso.objects.get(sigla=sigla)
-    if request.POST:
-        questao = Questao(turma=turma)
-        form = QuestaoForm(request.POST, request.FILES,instance=questao)
-        if form.is_valid():
-            form.save()
-            return redirect("/restrito")
-    else: 
-        if questao_id:
-            questao = Questao.objects.get(id=questao_id)    
-        else:
-            questao = Questao()
-        form = QuestaoForm(instance=questao)
-    context = { 
-        "form" : form,
-        "curso" : Curso 
-        }
+    
     return render(request, "questao_form.html", context)        
