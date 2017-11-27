@@ -52,4 +52,4 @@ def restrito(request):
     context = {
         "turmas" : Turma.objects.all()
     }
-    return render(request, "restrito.html" , context)
+    return render(request, "restrito.html")
