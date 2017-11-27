@@ -10,11 +10,9 @@ class ContatoForm(forms.Form):
     ra = forms.NumberInput()
     assunto = forms.CharField(label="assunto", required=True)
     mensagem = forms.CharField(label="mensagem", required="true")
-    def mandar_email(self, assunto, mensagem, email_enviar):
-        print("Agora deu certo.")
-        emailOrigem = EMAIL_HOST_USER
-        emailDestino = [email_enviar]
-        send_mail(assunto, mensagem, emailOrigem, emailDestino, fail_silently=True)
+    
+        
+        
         
 class QuestaoForm(forms.ModelForm):
     class Meta:
