@@ -4,7 +4,6 @@ from django_get_started.settings import *
 
 class ContatoForm(forms.Form):
     nome = forms.CharField(label="nome", required=True )
-    email = forms.EmailField(label="email", help_text="Informe um e-mail válido")
     telefone = forms.NumberInput()
     ra = forms.NumberInput()
     assunto = forms.CharField(label="assunto", required=True)
