@@ -6,7 +6,9 @@
     <div>
         <h2>({ turma.turma })</h2>
         <ul>
-            
+            ({% for questao in questoes %})
+                <li>({ questao })</li>
+            ({% endfor %})
         </ul>
         <p class = "acoes">
             <a href = "#">Adicionar Questão</a>
