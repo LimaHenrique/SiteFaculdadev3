@@ -67,7 +67,7 @@ def questao_form(request, turma, questao_id=None):
     if questao_id:
         questao = Questao.objects.get(id=questao_id)
     else:
-        questao = Questao(turnma=turma)
+        questao = Questao(turma=turma)
 
     if request.POST:
         form = QuestaoForm(request.POST, request.FILES, instance=questao)
@@ -79,6 +79,6 @@ def questao_form(request, turma, questao_id=None):
     contexto = {
         "form":form,
         "turma":turma,
-        "questao":Questoes.objects.all()
+       
     }
     return render(request,"questao_form.html",contexto) 
