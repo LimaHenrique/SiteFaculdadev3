@@ -2,6 +2,7 @@
 {% block conteudo %}
 {%load static%}
 <h1>Questão<h1>
+{% if user.is_authenticated %}
 <form method="POST" action="">
     {{ form.as_p }}
     {% csrf_token %}
