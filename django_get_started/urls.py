@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^questao_form.html/$', questao_form, name="questao_form"),
     url(r'^restrito/(?P<sigla>[A-Z,a-z]+)/questao/(?P<questao_id>[0-9]*)', questao_form, name="questao_form"),
 
-    url(r'^curso/([A-Z,a-z]+)', curso)
+    url(r'^cursos/([A-Z,a-z]+)', cursos)
 ]
 
 if settings.DEBUG:
