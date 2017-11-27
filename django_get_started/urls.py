@@ -17,9 +17,9 @@ urlpatterns = [
     url(r'^cursos.html', login,{ 'template_name':'cursos.html' }),   
     url(r'^tarefas_entregues.html', login,{ 'template_name':'tarefas_entregues.html' }),
     url(r'^index.html', login,{ 'template_name':'index.html' }),
+    url(r'^restrito.html', login,{ 'template_name':'restrito.html' }, name = "restrito"),
     url(r'^questao_form.html', login,{ 'template_name':'questao_form.html' }),
     url(r'^sair/', logout , {'next_page': '/index.html'}), 
-    url(r'^restrito.html', login,{ 'template_name':'restrito.html' }, name = "restrito"),
 
     url(r'^cursos/([A-Z,a-z]+)', cursos)
 ]
