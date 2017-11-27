@@ -21,8 +21,6 @@ urlpatterns = [
     url(r'^restritos.html', login,{ 'template_name':'restritos.html' }),
     url(r'^sair/', logout , {'next_page': '/index.html'}), 
     url(r'^restrito/$', restrito, name="restrito"),
-    url(r'^questao_form.html/$', questao_form, name="questao_form"),
-    url(r'^restrito/(?P<sigla>[A-Z,a-z]+)/questao/(?P<questao_id>[0-9]*)', questao_form, name="questao_form"),
 
     url(r'^cursos/([A-Z,a-z]+)', cursos)
 ]
