@@ -4,6 +4,8 @@ from django.conf.urls import include
 from django.views.generic import RedirectView
 from django.contrib.auth.views import login,logout
 from app.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', login,{ 'template_name':'index.html' }),
