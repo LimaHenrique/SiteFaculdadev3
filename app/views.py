@@ -51,7 +51,7 @@ def disciplinas(request):
 def restrito(request):
     cursos = Curso.objects.all()
     for curso in cursos:
-        curso.questoes = Questao.objects.filter(curso=curso)
+        curso.questoes = Questao.objects.filter(turma=turma)
     contexto = {
         "Cursos": cursos
     }
