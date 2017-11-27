@@ -50,6 +50,6 @@ def disciplinas(request):
 
 def restrito(request):
     context = {
-    
+        "turmas" : Turma.Objects.all()
     }
     return render(request, "restrito.html" , context)
