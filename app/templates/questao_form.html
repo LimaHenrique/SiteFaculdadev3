@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block conteudo %}
-<div><br/><br/>
+{%load static%}
     <h1>ADICIONAR QUESTÕES<h1>
-    <h2>{{ curso }}</h2>
-    <form method="POST" action="" enctype="multipart/form-data">
+    <h2>{{ turma }}</h2>
+    <form method="POST" action="">
         {% csrf_token %}
         <input type="submit" value="Enviar" id="enviar"/><br/>
         <input type="reset" value="Limpar" id="enviar"/>
