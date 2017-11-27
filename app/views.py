@@ -49,7 +49,7 @@ def disciplinas(request):
     return render(request, "disciplinas.html" , context)	
 	
 def restrito(request):
-    
+    "cursos" : Curso.objects.all()
     return render(request, "restrito.html", contexto)
 
 
