@@ -131,7 +131,7 @@ class Questao(models.Model):
       
 class ArquivosQuestao(models.Model):
     numero_questao = models.IntegerField("NumeroQuestao")
-    arquivo = models.CharField(max_length=500)
+    arquivo = models.FileField(upload_to="arquivosQ/")
     questao = models.ForeignKey(Questao)
 
 class Resposta(models.Model):
@@ -145,4 +145,4 @@ class Resposta(models.Model):
       
 class ArquivosResposta(models.Model):
     resposta = models.ForeignKey(Resposta)      
-    arquivo = models.CharField(max_length=500)
+    arquivo = models.FileField(upload_to="arquivosR/")
