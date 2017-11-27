@@ -19,4 +19,4 @@ class ContatoForm(forms.Form):
 class QuestaoForm(forms.ModelForm):
     class Meta:
         model = Questao
-        exclude = ["turma"]
+        fields = ["numero"]
