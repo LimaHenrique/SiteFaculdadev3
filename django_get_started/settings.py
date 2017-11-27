@@ -106,7 +106,7 @@ LOGIN_REDIRECT_URL= 'logado.html'
 
 EMAIL_BACKEND = 'django.app.mail.backends.smtp.EmailBackend'
 EMAIL_USER_TLS = True
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "evertonalaauk@gmail.com"
-EMAIL_HOST_PASSWORD = "kaonbolado001002036"
+EMAIL_HOST = "smtp.hotmail.com"
+EMAIL_HOST_USER = "sitefaculdadev3@hotmail.com"
+EMAIL_HOST_PASSWORD = "faculdade v3"
 EMAIL_PORT = 587
