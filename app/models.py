@@ -1,7 +1,6 @@
-from django import forms
-from app.models import Questao
-from django.core.mail import send_mail
-from siteFaculdade.settings import *
+from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+# Create your models here.
 
 import sys
 reload(sys)
