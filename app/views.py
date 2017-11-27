@@ -56,6 +56,3 @@ def restrito(request):
     return render(request, "restrito.html", contexto)
 
 
-def questao_form(request,sigla=None,questao_id=None):
-    
-    return render(request, "questao_form.html", context)        
