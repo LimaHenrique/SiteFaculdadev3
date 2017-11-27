@@ -104,6 +104,13 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'app.Usuario'
 LOGIN_REDIRECT_URL= 'logado.html'
 
+EMAIL_BACKEND = "django.app.mail.backends.smtp.Emailbackend"
+EMAIL_USER_TLS = True
+EMAIL_HOST = "smtp.hotmail.com.com"
+EMAIL_HOST_USER = "henrique_lindao1999@hotmail.com"
+EMAIL_HOST_PASSWORD = "Henrique 0303"
+EMAIL_PORT = 587
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.Emailbackend"
 
 EMAIL_USER_TLS = True
