@@ -110,4 +110,3 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "evertonalaauk@gmail.com"
 EMAIL_HOST_PASSWORD = "kaonbolado001002036"
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
