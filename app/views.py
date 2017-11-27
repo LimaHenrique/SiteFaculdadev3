@@ -61,7 +61,7 @@ def restrito(request):
 def questao_form(request,sigla=None,questao_id=None):
     curso = Curso.objects.get(sigla=sigla)
     if request.POST:
-        questao = Questao(curso=curso)
+        questao = Questao(turma=turma)
         form = QuestaoForm(request.POST, request.FILES,instance=questao)
         if form.is_valid():
             form.save()
