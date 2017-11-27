@@ -48,3 +48,5 @@ def disciplinas(request):
     context = {"disciplinas.html" : form }
     return render(request, "disciplinas.html" , context)	
 
+def restrito(request):
+    return render(request, "restrito.html" , context)
