@@ -141,7 +141,6 @@
         display: flex;
         margin: 0 300px; }
     #link:hover {
-        color: rgb(65, 65, 65);
         font-size: 30px; }
     #opcoes {
         width: 15px;
