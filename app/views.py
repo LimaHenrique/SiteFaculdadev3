@@ -53,7 +53,7 @@ def restrito(request):
     for curso in cursos:
         curso.questoes = Questao.objects.filter(curso=curso)
     contexto = {
-        "cursos":cursos
+        "Cursos":cursos
     }
     return render(request,"restrito.html",contexto)
 
@@ -75,6 +75,6 @@ def questao_form(request, sigla, questao_id=None):
 
     contexto = {
         "form":form,
-        "curso":curso
+        "curso":Curso
     }
     return render(request,"questao_form.html",contexto)
