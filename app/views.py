@@ -59,7 +59,6 @@ def questao_form(request,turma=None,questao_id=None):
         form = QuestaoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/restrito.html")
     else: 
         form = QuestaoForm()
     context = { 
