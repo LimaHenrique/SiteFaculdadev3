@@ -1,10 +1,18 @@
 {% extends "base.html" %}
 {% block conteudo %}
 {%load static%}
-    <h1>ÁREA RESTRITA</h1>
-    {% for turma in Turma  %}
-        <div>
-            <h2>{{ turma.turma }}</h2>
-        </div>
+<h1>ÁREA RESTRITA</h1>
+{% for turma in Turma  %}
+<div>
+	<h2>{{ turma.turma }}</h2>
+	<ul>
+		{% for questao in questoes %}
+			<li>{{ questao }}</li>
+			{% empty %}
+			<li>A turma {{ turma }} não possui questões.</li>
+		{% endfor %}
+	</ul>
+	<a href="questao_form.html">ADICIONAR QUESTÃO</a>
+</div>
     {% endfor %}
 {% endblock %}
