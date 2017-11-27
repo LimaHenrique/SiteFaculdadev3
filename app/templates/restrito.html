@@ -5,13 +5,11 @@
 <h1>ÁREA RESTRITA</h1><br/>
 {% for turma in turmas %}
 <h1>{{ turma.turma }}</h1>
-<ul>
-	{% for questao in questoes %}
-		<li>{{ questao }}</li>
+{% for questao in questoes %}
+	<h4>{{ questao }}</h4>
 	{% empty %}
-		<li>A turma {{ turma }} não possui questões.</li>
-	{% endfor %}
-</ul>
+		<h4>A turma {{ turma }} não possui questões.</h4>
+{% endfor %}
 <a href="questao_form.html">ADICIONAR QUESTÃO</a>
 {% endfor %}
 {% endblock %}
