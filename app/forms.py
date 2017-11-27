@@ -1,21 +1,24 @@
 from django import forms
 from app.models import *
 from django_get_started.settings import *
+from django.app.mail import send_mail
 
-class CursoForm(forms.ModelForm):
-
-    class Meta:
-        model = Curso
-        fields = "__all__"
 
 class ContatoForm(forms.Form):
+    nome = forms.CharField(label="nome", required=True )
+    email = forms.EmailField(label="email", help_text="Informe um e-mail válido")
+    telefone = forms.NumberInput()
+    ra = forms.NumberInput()
+    assunto = forms.CharField(label="assunto", required=True)
+    mensagem = forms.CharField(label="mensagem", required="true")
 
-    nome = forms.CharField()
-    email = forms.EmailField()
-    mensagem = forms.CharField()
+    def mandar_email(self, assunto, mensagem, email_enviar):
+        print("Agora deu certo.")
+        emailOrigem = EMAIL_HOST_USER
+        emailDestino = [email_enviar]
+        send_mail(assunto, mensagem, emailOrigem, emailDestino, fail_silently=True)
     
 class QuestaoForm(forms.ModelForm):
-
     class Meta:
         model = Questao
         fields = "__all__"
