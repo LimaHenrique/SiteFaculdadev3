@@ -20,8 +20,6 @@ urlpatterns = [
     url(r'^restrito.html', restrito, name="restrito"),
     url(r'^questao_form.html', login,{ 'template_name':'questao_form.html' }),
     url(r'^sair/', logout , {'next_page': '/index.html'}), 
-
-    url(r'^cursos/([A-Z,a-z]+)', cursos)
 ]
 
 if settings.DEBUG:
