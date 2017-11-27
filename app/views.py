@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from app.models import *
 from app.forms import *
+from django.app.mail import send_mail
+from .django_get_started.settings import *
 
 def index(request):
 
@@ -13,14 +15,21 @@ def index(request):
     return render(request, "index.html")
 
 def contato(request):
+    
     form = ContatoForm(request.POST)
+    
     nome = request.POST.get('nome')
     email = request.POST.get('email')
     telefone = request.POST.get('telefone')
     assunto = request.POST.get('assunto')
     conteudo_mensagem = request.POST.get('mensagem')
     mensagem = "Nome: {}. Telefone: {}. Mensagem: {}".format(nome, telefone, conteudo_mensagem)
-    form.mandar_email(assunto, mensagem, email)
+    
+    emailOrigem = EMAIL_HOST_USER
+    emailDestino = [email]
+    
+    send_mail(assunto, mensagem, emailOrigem, emailDestino, fail_silently=True)
+    
     context = { "contato.html" : form }
     return render(request, "contato.html" , context)
 
