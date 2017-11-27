@@ -3,5 +3,14 @@
 {% block main %}
     <h1>Área Restrita</h1>
     {% for turma in turmas %}
-    
+    <div>
+        <h2>({ turma.turma })</h2>
+        <ul>
+            
+        </ul>
+        <p class = "acoes">
+            <a href = "#">Adicionar Questão</a>
+        </p>    
+    </div>
+    {% endfor %}
 {% endblock %}
