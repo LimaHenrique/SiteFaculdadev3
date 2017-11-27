@@ -49,4 +49,7 @@ def disciplinas(request):
     return render(request, "disciplinas.html" , context)	
 
 def restrito(request):
+    context = {
+    
+    }
     return render(request, "restrito.html" , context)
