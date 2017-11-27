@@ -5,14 +5,7 @@
 {% for turma in turmas  %}
 <div>
     <h2>{{ turma.nome }}</h2>
-    <ul>
-	{% for questao in questoes %}
-	    <li>{{ questao }}</li>
-	{% empty %}
-	    <li>A turma {{ turma }} não possui questões.</li>
-	{% endfor %}
-    </ul>
-<a href="questao_form.html">ADICIONAR QUESTÃO</a>
+<a href="#">ADICIONAR QUESTÃO</a>
 </div>
 {% endfor %}
 {% endblock %}
