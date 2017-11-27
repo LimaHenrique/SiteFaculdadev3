@@ -53,3 +53,23 @@ def restrito(request):
         "turmas" : Turma.objects.all()
     }
     return render(request, "restrito.html", context)
+
+def questao_form(request,sigla=None,questao_id=None):
+    turma = Turma.objects.get(sigla=sigla)
+    if request.POST:
+        questao = Questao(turma=turma)
+        form = QuestaoForm(request.POST, request.FILES,instance=questao)
+        if form.is_valid():
+            form.save()
+            return redirect("/restrito")
+    else: 
+        if questao_id:
+            questao = Questao.objects.get(id=questao_id)
+        else:
+            questao = Questao()
+        form = QuestaoForm(instance=questao)
+    context = { 
+        "form" : form,
+        "turma" : Turma 
+        }
+    return render(request, "questao_form.html", context)    
