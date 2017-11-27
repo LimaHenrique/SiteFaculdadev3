@@ -55,6 +55,11 @@ def restrito(request):
     }
     return render(request, "restrito.html", contexto)
 
+def tarefas_entregues(request):
+    form = ContatoForm()
+    context = {"tarefas_entregues.html" : form }
+    return render(request, "tarefas_entregues.html" , context)      
+
 
 def questao_form(request,sigla=None,questao_id=None):
     curso = Curso.objects.get(sigla=sigla)
