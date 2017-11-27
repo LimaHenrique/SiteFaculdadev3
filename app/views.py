@@ -49,7 +49,6 @@ def disciplinas(request):
     return render(request, "disciplinas.html" , context)	
 
 def restrito(request):
-    context = {
-        "turmas" : Turma.objects.all()
-    }
-    return render(request, "restrito.html")
+    form = Contato()
+    context = {"restrito.html" : form }
+    return render(request, "restrito.html", context)
