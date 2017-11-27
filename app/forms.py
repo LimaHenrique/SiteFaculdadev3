@@ -1,6 +1,6 @@
 from django import forms
 from app.models import *
-from django.app.mail import send_mail
+#from django.app.mail import send_mail
 from django_get_started.settings import *
 
 class ContatoForm(forms.Form):
