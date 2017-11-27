@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block conteudo %}
 {%load static%}
-({% from app.models import * %})
+{% from app.models import * %}
     <h1>ÁREA RESTRITA</h1>
     {% for turma in Turma  %}
         <div>
