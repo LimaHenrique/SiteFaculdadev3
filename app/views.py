@@ -54,14 +54,14 @@ def restrito(request):
     }
     return render(request, "restrito.html", context)
 
-def questao_form(request,sigla=None,questao_id=None):
+def questao_form(request,turma=None,questao_id=None):
     if request.POST:
-        form = QuestaoForm(request.POST, request.FILES,instance=questao)
+        form = QuestaoForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("/restrito.html")
     else: 
-        form = QuestaoForm(instance=questao)
+        form = QuestaoForm()
     context = { 
         "form" : form,
         }
