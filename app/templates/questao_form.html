@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 {% block conteudo %}
 {%load static%}
-<div align="center">
     <h1>Questão<h1>
-    <h2>{{ turma }}</h2>
     <form method="POST" action="">
         {{ form.as_p }}
         {% csrf_token %}
         <input type="submit" value="Enviar" width="300px" height="200px"/>
-        <input type="reset" value="Limpar" width="300px"  height="200px"/>
     </form>
-</div>
 {% endblock %}
 {% csrf_token %}
