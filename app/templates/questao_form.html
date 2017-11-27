@@ -2,5 +2,11 @@
 {% block conteudo %}
 {%load static%}
     <h1>Questão</h1>
- 
+    <h2>{{ turma }}</h2>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">Enviar</button> 
+    </form>
+
 {% endblock %}
