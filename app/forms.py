@@ -12,4 +12,4 @@ class ContatoForm(forms.Form):
 class QuestaoForm(forms.ModelForm):
     class Meta:
         model = Questao
-        fields = "__all__"
+        fields = "turma"
