@@ -5,12 +5,12 @@
 <h1>ÁREA RESTRITA</h1>
 {% for cursos in Cursos  %}
 <div>
-	<h2>{{ curso.nome }}</h2>
+	<h2>{{ Cursos.nome }}</h2>
 	<ul>
 		{% for questao in questoes %}
 			<li>{{ questao }}</li>
 			{% empty %}
-			<li>O cursos {{ cursos }} não possui questões.</li>
+			<li>O cursos {{ Cursos }} não possui questões.</li>
 		{% endfor %}
 	</ul>
 	<a href="questao_form.html">ADICIONAR QUESTÃO</a>
