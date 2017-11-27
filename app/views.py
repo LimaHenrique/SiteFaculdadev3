@@ -78,6 +78,7 @@ def questao_form(request, turma, questao_id=None):
 
     contexto = {
         "form":form,
-        "turma":turma
+        "turma":turma,
+        "questao":Questoes.objects.all()
     }
     return render(request,"questao_form.html",contexto) 
