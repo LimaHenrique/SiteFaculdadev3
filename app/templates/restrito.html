@@ -2,14 +2,14 @@
 {% block conteudo %}
 {%load static%}
 <h1>ÁREA RESTRITA</h1>
-{% for curso in Curso  %}
+{% for turma in Turma  %}
 <div>
-    <h2>{{ curso.nome }}</h2>
+    <h2>{{ turma.nome }}</h2>
     <ul>
 	{% for questao in questoes %}
 	    <li>{{ questao }}</li>
 	{% empty %}
-	    <li>O curso {{ curso }} não possui questões.</li>
+	    <li>A turma {{ turma }} não possui questões.</li>
 	{% endfor %}
     </ul>
 <a href="questao_form.html">ADICIONAR QUESTÃO</a>
