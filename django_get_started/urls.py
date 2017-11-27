@@ -9,13 +9,20 @@ urlpatterns = [
     url(r'^$', login,{ 'template_name':'index.html' }),
     url(r'^contato.html', login,{ 'template_name':'contato.html' }),
     url(r'^logado.html', login,{ 'template_name':'logado.html' }),
-    url(r'^restrito.html', login,{ 'template_name':'restrito.html' }),
     url(r'^disciplinas.html', login,{ 'template_name':'disciplinas.html' }),
     url(r'^inscricao.html', login,{ 'template_name':'inscricao.html' }),
     url(r'^admin/', admin.site.urls),
     url(r'^cursos.html', login,{ 'template_name':'cursos.html' }),   
-    url(r'^eventos.html', login,{ 'template_name':'eventos.html' }),
-    url(r'^blog.html', login,{ 'template_name':'blog.html' }),
+    url(r'^tarefas_entregues.html', login,{ 'template_name':'tarefas_entregues.html' }),
     url(r'^index.html', login,{ 'template_name':'index.html' }),
-    url(r'^sair/', logout , {'next_page': '/index.html'}) 
+    url(r'^questao_form.html', login,{ 'template_name':'questao_form.html' }),
+    url(r'^restritos.html', login,{ 'template_name':'restritos.html' }),
+    url(r'^sair/', logout , {'next_page': '/index.html'}), 
+    url(r'^restrito.html$/', restrito, name="restrito"),
+    url(r'^questao_form.html/$', questao_form, name="questao_form"),
+    url(r'^restrito/(?P<sigla>[A-Z,a-z]+)/questao/(?P<questao_id>[0-9]*)', questao_form, name="questao_form"),
+    url(r'^cursos.html/([A-Z,a-z]+)', cursos) 
 ]
+
+#if settings.DEBUG:
+   #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
