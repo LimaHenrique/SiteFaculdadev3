@@ -3,9 +3,9 @@
 {%load static%}
 <h1>ÁREA RESTRITA</h1>
 {% for turma in Turma  %}
-<div>
-    <h2>{{ turma.nome }}</h2>
-<a href="#">ADICIONAR QUESTÃO</a>
-</div>
+    <div>
+        <h2>{{ turma.nome }}</h2>
+    <a href="#">ADICIONAR QUESTÃO</a>
+    </div>
 {% endfor %}
 {% endblock %}
