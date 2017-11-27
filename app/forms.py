@@ -18,4 +18,4 @@ class QuestaoForm(forms.ModelForm):
 
     class Meta:
         model = Questao
-        exclude = ["curso"]
+        exclude = ["turma"]
