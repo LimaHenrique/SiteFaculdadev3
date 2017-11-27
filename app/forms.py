@@ -14,7 +14,7 @@ class ContatoForm(forms.Form):
     email = forms.EmailField()
     mensagem = forms.CharField()
     
-class QuestaoForm(forms.ModelForm):
+class QuestaoForm(forms.Form):
 
     class Meta:
         model = Questao
