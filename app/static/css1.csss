@@ -1,4 +1,4 @@
-
+@charset "UTF-8";
 #acesso {
         display: flex; }
     label {
