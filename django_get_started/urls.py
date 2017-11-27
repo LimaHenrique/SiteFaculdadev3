@@ -18,8 +18,9 @@ urlpatterns = [
     url(r'^tarefas_entregues.html', login,{ 'template_name':'tarefas_entregues.html' }),
     url(r'^index.html', login,{ 'template_name':'index.html' }),
     url(r'^restrito.html', restrito, name="restrito"),
+    url(r'^questao_form.html', login,{ 'template_name':'questao_form.html' }, name="questao_form")
     url(r'^sair/', logout , {'next_page': '/index.html'}), 
-    url(r'^questao_form.html', login,{ 'template_name':'questao_form.html' }), name="questao_form")
+    
 ]
 
 if settings.DEBUG:
