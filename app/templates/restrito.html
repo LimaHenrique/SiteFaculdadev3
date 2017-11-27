@@ -2,9 +2,9 @@
 {% block conteudo %}
 {%load static%}
 <h1>ÁREA RESTRITA</h1>
-{% for turma in turmas  %}
+{% for turma in Turma  %}
 <div>
-    <h2>{{ turmas.nome }}</h2>
+    <h2>{{ turma.nome }}</h2>
 <a href="#">ADICIONAR QUESTÃO</a>
 </div>
 {% endfor %}
