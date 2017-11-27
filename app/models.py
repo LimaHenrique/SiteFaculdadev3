@@ -146,3 +146,15 @@ class Resposta(models.Model):
 class ArquivosResposta(models.Model):
     resposta = models.ForeignKey(Resposta)      
     arquivo = models.FileField(upload_to="arquivosR/")
+	
+class Questao(models.Model):
+      curso = models.ForeignKey(Curso)
+      numero = models.IntegerField("Número")
+      entrega = models.DateField("Entrega")
+      arquivo = models.FileField(upload_to="arquivos/")
+      if (arquivo) {
+	      return True
+      }
+      else{
+	      return False
+      }
