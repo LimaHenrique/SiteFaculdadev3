@@ -1,4 +1,3 @@
-
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
@@ -10,6 +9,7 @@ urlpatterns = [
     url(r'^$', login,{ 'template_name':'index.html' }),
     url(r'^contato.html', login,{ 'template_name':'contato.html' }),
     url(r'^logado.html', login,{ 'template_name':'logado.html' }),
+    url(r'^restrito.html', login,{ 'template_name':'restrito.html' }),
     url(r'^disciplinas.html', login,{ 'template_name':'disciplinas.html' }),
     url(r'^inscricao.html', login,{ 'template_name':'inscricao.html' }),
     url(r'^admin/', admin.site.urls),
