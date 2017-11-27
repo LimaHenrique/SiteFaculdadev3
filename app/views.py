@@ -13,7 +13,14 @@ def index(request):
     return render(request, "index.html")
 
 def contato(request):
-    form = Contato()
+    form = ContatoForm(request.POST)
+    nome = request.POST.get('nome')
+    email = request.POST.get('email')
+    telefone = request.POST.get('telefone')
+    assunto = request.POST.get('assunto')
+    conteudo_mensagem = request.POST.get('mensagem')
+    mensagem = "Nome: {}. Telefone: {}. Mensagem: {}".format(nome, telefone, conteudo_mensagem)
+    form.mandar_email(assunto, mensagem, email)
     context = { "contato.html" : form }
     return render(request, "contato.html" , context)
 
