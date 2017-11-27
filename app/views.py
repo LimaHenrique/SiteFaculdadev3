@@ -47,16 +47,16 @@ def disciplinas(request):
     return render(request, "disciplinas.html" , context)	
 	
 def restrito(request):
-    cursos = cursos.objects.all()
-    for curso in Cursos:
+    cursos = Curso.objects.all()
+    for curso in Curso:
         curso.questoes = Questao.objects.filter(curso=curso)
     contexto = {
-        "cursos":cursos
+        "cursos":curso
     }
     return render(request,"restrito.html",contexto)
 
 def questao_form(request, sigla, questao_id=None):
-    curso = cursos.objects.get(sigla=sigla)
+    curso = curso.objects.get(sigla=sigla)
 
     if questao_id:
         questao = Questao.objects.get(id=questao_id)
@@ -73,6 +73,6 @@ def questao_form(request, sigla, questao_id=None):
 
     contexto = {
         "form":form,
-        "curso":curso
+        "curso":Curso
     }
     return render(request,"questao_form.html",contexto)
