@@ -1,6 +1,6 @@
 from django import forms
 from app.models import *
-from siteFaculdadev3.settings import *
+from SiteFaculdadev3.settings import *
 
 class CursoForm(forms.ModelForm):
 
