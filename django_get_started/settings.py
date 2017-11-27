@@ -110,9 +110,3 @@ EMAIL_HOST = "smtp.hotmail.com.com"
 EMAIL_HOST_USER = "henrique_lindao1999@hotmail.com"
 EMAIL_HOST_PASSWORD = "Henrique 0303"
 EMAIL_PORT = 587
-
-EMAIL_USER_TLS = True
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "email"
-EMAIL_HOST_PASSWORD = "senha"
-EMAIL_PORT = 587
