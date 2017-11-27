@@ -144,9 +144,8 @@
         font-size: 30px; }
     #opcoes {
         width: 15px;
-        margin-left: 250px;  }
-    #dados {
-            margin-left: 250px;
+        margin-left: 250px;  }#dados {
+        margin-left: 250px;
             display: inline-block; }
     select {
         margin-left: 50px;
