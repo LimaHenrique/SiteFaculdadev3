@@ -3,14 +3,14 @@
 {%load static%}
 <br/><br/><br/>
 <h1>ÁREA RESTRITA</h1>
-{% for curso in Curso  %}
+{% for cursos in Cursos  %}
 <div>
 	<h2>{{ curso.nome }}</h2>
 	<ul>
 		{% for questao in questoes %}
 			<li>{{ questao }}</li>
 			{% empty %}
-			<li>O curso {{ curso }} não possui questões.</li>
+			<li>O cursos {{ cursos }} não possui questões.</li>
 		{% endfor %}
 	</ul>
 	<a href="questao_form.html">ADICIONAR QUESTÃO</a>
