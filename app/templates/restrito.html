@@ -8,11 +8,11 @@
 	<ul>
 		{% for questao in questoes %}
 			<li>{{ questao }}</li>
-			{% empty %}
+		{% empty %}
 			<li>A turma {{ turma }} não possui questões.</li>
 		{% endfor %}
 	</ul>
 	<a href="questao_form.html">ADICIONAR QUESTÃO</a>
 </div>
-    {% endfor %}
+{% endfor %}
 {% endblock %}
