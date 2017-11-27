@@ -1,7 +1,7 @@
 from django import forms
 from app.models import *
-from django.core.mail import send_mail
-from siteFaculdade.settings import *
+from django.app.mail import send_mail
+from siteFaculdadev3.settings import *
 
 class CursoForm(forms.ModelForm):
 
