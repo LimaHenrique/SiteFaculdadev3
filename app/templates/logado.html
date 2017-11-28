@@ -11,7 +11,6 @@
 {% if user.is_authenticated and user.perfil == 'P' %}
         <h1><br/>ÁREA DO PROFESSOR ~ Bem vindo, {{ user }}!</h1><hr/><br/>
         <a href="tarefas_entregues" style="margin: 0 300px">• &nbsp; RESUMO DAS TAREFAS ENTREGUES</a><br/>
-        <a href="questao_form.html" style="margin: 0 300px">• &nbsp; ADICIONAR DISCIPLINAS</a><br/>
         <br/><br/><br/><br/>
 {% endif %}
 {%if user.is_authenticated and user.perfil == 'C' %}
