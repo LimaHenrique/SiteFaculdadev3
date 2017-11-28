@@ -8,7 +8,7 @@
 		<h2>{{ questao.numero }}</h2>
 		<ul>
 			{% for questao in questao.arquivosquestao %}
-				<li>{{ turma }} - 
+				<li>{{ questao }} - 
 				<a href="{% url 'questao_form' numero=questao.numero arquivosquestao_id=arquivosquestao.id %}">Editar questão</a></li>
 			{% empty %}
 				<li>Esse curso ainda não possui questões</li>
