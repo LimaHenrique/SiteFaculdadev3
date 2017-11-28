@@ -45,10 +45,10 @@
         transition: 2px; }
 
     #menu {
-        padding: 0 200px; }
+        padding: 200px; }
     #menu ul {
         list-style: none;
-        margin: 0;
+        margin=left: 50px;
         padding: 0 100px;
         display: flex;
         border: 15px solid none;
