@@ -72,23 +72,23 @@ def restrito(request):
     return render(request, "restrito.html", context)
 
 def questao_form(request, turma, questao_id=None):
-    turma = Turma.objects.get(turma=turma)
+    questao = Questao.objects.get(questao=questao)
 
     if questao_id:
-        questao = Questao.objects.get(id=questao_id)
+        arquivosquestao = ArquivosQuestao.objects.get(id=arquivosquestao_id)
     else:
-        questao = Questao(turma=turma)
+        arquivosquestao = ArquivosQuestao(questao=questao)
 
     if request.POST:
-        form = QuestaoForm(request.POST, request.FILES, instance=questao)
+        form = QuestaoForm(request.POST, request.FILES, instance=arquivosquestao)
         if form.is_valid():
             form.save()
     else:
-        form = QuestaoForm(instance=questao)
+        form = QuestaoForm(instance=arquivosquestao)
 
     contexto = {
         "form":form,
-        "turma":turma,
+        "questao":Questao,
        
     }
     return render(request,"questao_form.html",contexto) 
