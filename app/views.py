@@ -44,10 +44,9 @@ def eventos(request):
     return render(request, "eventos.html" , context)
 
 def cursos(request):
+    cursos = Curso.objects.all()
     form = Contato()
-    context = { "cursos.html" : form,
-              "Cursos": Curso.objects.all()
-              }
+    context = { "cursos.html" : form }              }
     return render(request, "cursos.html" , context)    
     
 def inscricao(request):
