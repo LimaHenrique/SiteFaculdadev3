@@ -3,20 +3,20 @@
 {%load static%}
 <br/><br/>
 <h1>ÁREA RESTRITA</h1><br/>
-{% for turma in turmas  %}
+{% for questao in questoes  %}
 	<div>
-		<h2>{{ turma.turma }}</h2>
+		<h2>{{ questao.numero }}</h2>
 		<ul>
-			{% for turma in turma.questao %}
+			{% for questao in questao.arquivosquestao %}
 				<li>{{ turma }} - 
-				<a href="{% url 'questao_form' turma=turma.turma questao_id=questao.id %}">Editar questão</a></li>
+				<a href="{% url 'questao_form' numero=questao.numero arquivosquestao_id=arquivosquestao.id %}">Editar questão</a></li>
 			{% empty %}
 				<li>Esse curso ainda não possui questões</li>
 			{% endfor %}
 
 		</ul>
 		<p class="acoes">
-			<a href="{% url 'questao_form' turma=turma.turma questao_id='' %}">Adicionar Questão</a>
+			<a href="{% url 'questao_form' numero=questao.numero arquivosquestao_id='' %}">Adicionar Questão</a>
 		</p>
 <br/><br/><br/>
 {% endfor %}
