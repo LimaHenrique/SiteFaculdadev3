@@ -12,9 +12,8 @@ class ContatoForm(forms.Form):
     mensagem = forms.CharField(label="mensagem", required="true")
     
         
-        
-        
 class QuestaoForm(forms.ModelForm):
     class Meta:
         model = Questao
-        exclude = ["turma"]
+        fields = "__all__"
+
