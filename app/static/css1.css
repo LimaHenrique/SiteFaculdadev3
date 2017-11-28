@@ -129,13 +129,7 @@
         border: 5px solid silver;
         margin-left: 300px;
         margin-right: 500px; }
-    #link {
-        font-size: 20px;
-        font-family: Corbel, Arial, sans-serif;
-        display: flex;
-        margin: 0 300px; }
-    #link:hover {
-        font-size: 30px; }
+   
     #opcoes {
         width: 15px;
         margin-left: 250px;  }#dados {
