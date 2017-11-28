@@ -45,12 +45,8 @@ def eventos(request):
 
 def cursos(request):
     form = Contato()
-    
-    teste_curso = Curso()
-    teste_curso.nome = 'TESTE'
-    lista_cursos2 = [teste_curso]    
     context = { "cursos.html" : form,
-                "lista_cursos": lista_cursos2 }
+                "lista_cursos": Curso.objects.all() }
     return render(request, "cursos.html" , context)    
     
 def inscricao(request):
