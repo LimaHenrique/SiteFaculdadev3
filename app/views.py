@@ -83,6 +83,7 @@ def questao_form(request, numero, arquivosquestao_id=None):
         form = QuestaoForm(request.POST, request.FILES, instance=arquivosquestao)
         if form.is_valid():
             form.save()
+            return redirect("/restrito.html")
     else:
         form = QuestaoForm(instance=arquivosquestao)
 
