@@ -71,25 +71,24 @@ def restrito(request):
     }
     return render(request, "restrito.html", context)
 
-def questao_form(request, numero, arquivosquestao_id=None):
-    questao = Questao.objects.get(numero=numero)
+def questao_form(request, sigla, questao_id=None):
+    curso = Curso.objects.get(sigla=sigla)
 
     if questao_id:
-        arquivosquestao = ArquivosQuestao.objects.get(id=arquivosquestao_id)
+        questao = Questao.objects.get(id=questao_id)
     else:
-        arquivosquestao = ArquivosQuestao(questao=questao)
-
+        questao = Questao(curso=curso)
+        
     if request.POST:
-        form = QuestaoForm(request.POST, request.FILES, instance=arquivosquestao)
+        form = QuestaoForm(request.POST, request.FILES, instance=questao)
         if form.is_valid():
             form.save()
             return redirect("/restrito.html")
-    else:
-        form = QuestaoForm(instance=arquivosquestao)
-
-    contexto = {
-        "form":form,
-        "questao":Questao,
-       
+    else:   
+        form = QuestaoForm(instance=questao)
+    context = { 
+        "form" : form,
+        "curso" : Curso 
     }
-    return render(request,"questao_form.html",contexto) 
+    return render(request,"questao_form.html",context)    
+
