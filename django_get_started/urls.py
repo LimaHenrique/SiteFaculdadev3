@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^index.html', login,{ 'template_name':'index.html' }),
     
     url(r'^restrito.html/$', restrito , name="restrito"),
-    url(r'^questao_form.html/$', questao_form , name="questao_form"),
+    url(r'^questao_form.html/$', restrito , name="questao_form"),
 
     url(r'^questao_form.html/(?P<sigla>[A-Z,a-z]+)/questao/(?P<questao_id>[0-9]*)', questao_form , name="questao_form"),
 
