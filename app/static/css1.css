@@ -54,8 +54,9 @@
     #menu ul {
         list-style: none;
         margin: 0;
-        padding: 0 100px;
-        display: flex;
+        width: 100%
+        padding: 2 12;
+        display: inline;
         border: 15px solid none;
         background-color: silver; }
     #menu li ul {
