@@ -30,7 +30,7 @@ def contato(request):
     context = { "contato" : form }
     return render(request, "contato.html" , context)
 
-def curso(request):
+def cursos(request):
     form = Contato()
     context = { "cursos.html" : form,
                 "lista_cursos": Cursos.objects.all() }
