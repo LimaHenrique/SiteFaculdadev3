@@ -14,6 +14,6 @@ class ContatoForm(forms.Form):
         
 class QuestaoForm(forms.ModelForm):
     class Meta:
-        model = Questao
+        model = ArquivosQuestao
         fields = "__all__"
 
