@@ -63,13 +63,16 @@ def logado(request):
 def disciplinas(request):
     form = Contato()
     context = {"disciplinas.html" : form }
-    return render(request, "disciplinas.html" , context)	
+    return render(request, "disciplinas.html" , context)
 
 def restrito(request):
-    context = {
-        "turmas" : Turma.objects.all()
-    }
-    return render(request, "restrito.html", context)
+
+    cursos = Curso.objects.all()
+    for curso in cursos:
+        curso.questoes = Questao.objects.filter(curso=curso)
+    context = { "cursos":cursos }
+
+    return render(request, "restrito.html" , context)
 
 def questao_form(request, numero, questao_id=None):
     turma = Turma.objects.get(sigla=sigla)
