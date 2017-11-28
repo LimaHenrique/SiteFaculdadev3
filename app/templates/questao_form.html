@@ -2,13 +2,21 @@
 {% block conteudo %}
 {%load static%}
 <br/><br/><br/><br/>
-<h1>Questão<h1>
-<h4>{{ Curso }}</h4>
+<div align = "center" >
 <br/>
-<form method="POST" action="" enctype="multipart/form-data">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <input type="submit" value="Enviar" width="300px" height="200px"/>
-     <input type="reset" value="Limpar" width="300px"  height="200px"/>
+    <h1>Questão<h1>
+    <h2>{{ questao }}</h2>
+<br/>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Enviar" width="300px" height="200px"/>
+        <input type="reset" value="Limpar" width="300px"  height="200px"/>
+<br/>
+<br/>
+<br/>
+<br/>
+    </form>
+    </div>
 <br/><br/><br/><br/>
 {% endblock %}
