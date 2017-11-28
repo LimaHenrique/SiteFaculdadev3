@@ -20,17 +20,17 @@
 		if (pass == "" || pass == null){ alert("Senha inválida!") } }
 </script>
 	
-<nav class = "menu">
-		<ul style="text-align: center">
-			<br/>
-			<img class = "logo" src = "{% static 'logo-novo.png' %}" style="height: 50px; width: 180px"/>
-			<a href = "index.html"><li style="font-size:17px">A Impacta</li></a>
-			<a href = "cursos.html"><li style="font-size:17px">Cursos</li></a>
-			<a href = "eventos.html"><li style="font-size:17px">Eventos</li></a>
-			<a href = "blog.html"><li style="font-size:17px">Blog</li></a>
-			<a href = "contato.html"><li style="font-size:17px">Contato</li></a>
-
-<nav id="login">
+<nav id="menu">
+    <ul>
+        <br/><br/><br/><br/>
+        <li><a href="index.html">A FACULDADE</a></li>
+        <li><a href="contato.html">CONTATO</a></li>
+        <li><a href="#">CURSOS</a><ul>
+            <a href="cursos.html"><li>GRADUAÇÃO</li></a>
+            <a href="#"><li>PÓS-GRADUAÇÃO</li></a></ul></li>
+    </ul>
+</nav>
+<br/>
 		<ul>
 			<br/><br/>
             {% if not user.is_authenticated %}
