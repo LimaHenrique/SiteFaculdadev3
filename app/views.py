@@ -71,8 +71,8 @@ def restrito(request):
     }
     return render(request, "restrito.html", context)
 
-def questao_form(request, sigla, questao_id=None):
-    curso = Curso.objects.get(sigla=sigla)
+def questao_form(request, numero, questao_id=None):
+    turma = Turma.objects.get(sigla=sigla)
 
     if questao_id:
         questao = Questao.objects.get(id=questao_id)
