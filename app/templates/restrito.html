@@ -3,14 +3,21 @@
 {%load static%}
 <br/><br/>
 <h1>ÁREA RESTRITA</h1><br/>
-{% for turma in turmas %}
-<h1>{{ turma.turma }}</h1>
-{% for questao in questoes %}
-	<h4>{{ questao }}</h4>
-	{% empty %}
-		<h4>A turma {{ turma }} não possui questões.</h4><br/>
-{% endfor %}
-<a href="questao_form.html" id="link">ADICIONAR QUESTÃO</a>
+{% for turma in turmas  %}
+	<div>
+		<h2>{{ turma.turma }}</h2>
+		<ul>
+			{% for turma in turma.questao %}
+				<li>{{ turma }} - 
+				<a href="{% url 'questao_form' turma=turma.turma questao_id=questao.id %}">Editar questão</a></li>
+			{% empty %}
+				<li>Esse curso ainda não possui questões</li>
+			{% endfor %}
+
+		</ul>
+		<p class="acoes">
+			<a href="{% url 'questao_form' turma=turma.turma questao_id='' %}">Adicionar Questão</a>
+		</p>
 <br/><br/><br/>
 {% endfor %}
 {% endblock %}
