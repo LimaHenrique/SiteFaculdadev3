@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from app.models import *
 from app.forms import *
 from django.core.mail import send_mail
-from django_get_started.settings import *
+from siteFaculdade.settings import EMAIL_HOST_USER
 
 def index(request):
 
