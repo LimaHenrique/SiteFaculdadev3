@@ -40,11 +40,11 @@
 				{%endif%}
 				{%if user.perfil == 'P'%}
 					<a href="logado.html">ÁREA DO PROFESSOR</a><br/>
+					<a href="{%url 'restrito'%}">RESTRITO</a><br/>
 				{%endif%}
 				{%if user.perfil == 'C'%}
 					<a href="logado.html">ÁREA DO COORDENADOR</a><br/>
                 {%endif%}
-		<a href="{%url 'restrito'%}">RESTRITO</a><br/>	
                 <a href="sair/">SAIR</a><br/>
 			{% endif %}
 			<br/><br/><br/>
