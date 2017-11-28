@@ -128,10 +128,13 @@ class Questao(models.Model):
     descricao = models.TextField(blank=True)
     data = models.DateField(auto_now=False, auto_now_add=False)
     turma = models.ForeignKey(Turma)
+
+def arquivosQ(arquivosquestao, nome_arquivo):
+      return "{}/{}/{}".format(arquivosquestao.questao.numero, arquivosquestao.numero_questao, nome_arquivo)
       
 class ArquivosQuestao(models.Model):
     numero_questao = models.IntegerField("NumeroQuestao")
-    arquivo = models.FileField(upload_to="arquivosQ/")
+    arquivo = models.FileField(upload_to="arquivosQ")
     questao = models.ForeignKey(Questao)
 
 class Resposta(models.Model):
