@@ -29,8 +29,9 @@
             <a href="cursos.html"><li>GRADUAÇÃO</li></a>
             <a href="cursos.html"><li>PÓS-GRADUAÇÃO</li></a></ul></li>
     </ul>
-</nav>
+<nav id="login">
 		<ul>
+			<br/><br/>
             {% if not user.is_authenticated %}
 			<form method="POST" id="acesso">
 				{% csrf_token %}
@@ -53,6 +54,7 @@
 			<br/><br/><br/>
     </ul>
 </nav>
+
 {% block conteudo %}
 
 {% endblock %}
