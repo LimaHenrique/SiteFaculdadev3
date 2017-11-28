@@ -67,10 +67,10 @@ def disciplinas(request):
 
 def restrito(request):
 
-    cursos = Curso.objects.all()
-    for curso in cursos:
-        curso.questoes = Questao.objects.filter(curso=curso)
-    context = { "cursos":cursos }
+    turma = Turma.objects.all()
+    for turma in turmas:
+        turma.questoes = Questao.objects.filter(turma=turma)
+    context = { "turmas":turma }
 
     return render(request, "restrito.html" , context)
 
