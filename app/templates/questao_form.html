@@ -19,11 +19,11 @@
 <br/>
     </form>
     </div>
-(% endif %)  
+(% endif %)
+        
 {%if user.is_authenticated and user.perfil == 'C' %}
         <br/><br/><h1>ÁREA DO COORDENADOR ~ Bem vindo, {{ user }}!</h1><hr/><br/>
         <a href="admin/" style="margin: 0 300px">• &nbsp; ACESSAR O ADMINISTRADOR</a>
         <br/><br/><br/><br/>
-{% endif %}        
-<br/><br/><br/><br/>
+{% endif %}   
 {% endblock %}
