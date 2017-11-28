@@ -21,9 +21,12 @@
     </div>
 (% endif %)
         
-{%if user.is_authenticated and user.perfil == 'C' %}
-        <br/><br/><h1>ÁREA DO COORDENADOR ~ Bem vindo, {{ user }}!</h1><hr/><br/>
-        <a href="admin/" style="margin: 0 300px">• &nbsp; ACESSAR O ADMINISTRADOR</a>
+{%if user.is_authenticated and user.perfil == 'A' %}
+        <br/><br/><h1>ÁREA DO ALUNO ~ Bem vindo, {{ user }}!</h1><hr/><br/>
+        <a href="#" style="margin: 0 300px">• &nbsp; Em breve</a>
         <br/><br/><br/><br/>
 {% endif %}   
+{% if not user.is_authenticated %}
+        VAZA
+{% endif %}        
 {% endblock %}
