@@ -15,9 +15,7 @@ def index(request):
     return render(request, "index.html")
 
 def contato(request):
- 
     form = ContatoForm(request.POST)
-    
     nome = request.POST.get('nome')
     email = request.POST.get('email')
     telefone = request.POST.get('telefone')
@@ -26,24 +24,13 @@ def contato(request):
     mensagem = "Nome: {}. Telefone: {}. Mensagem: {}".format(nome, telefone, conteudo_mensagem)
     emailOrigem = EMAIL_HOST_USER
 
-    
     #send_mail(assunto, mensagem, emailOrigem, emailDestino, fail_silently=True)
     send_mail(assunto, mensagem, emailOrigem , [email], fail_silently=True)
     
     context = { "contato" : form }
     return render(request, "contato.html" , context)
 
-def blog(request):
-    form = Contato()    
-    context = { "blog.html" : form }
-    return render(request, "blog.html" , context)
-
-def eventos(request):
-    form = Contato()
-    context = { "eventos.html" : form }
-    return render(request, "eventos.html" , context)
-
-def cursos(request):
+def curso(request):
     form = Contato()
     context = { "cursos.html" : form,
                 "lista_cursos": Cursos.objects.all() }
@@ -66,7 +53,6 @@ def disciplinas(request):
     return render(request, "disciplinas.html" , context)
 
 def restrito(request):
-
     turma = Turma.objects.all()
     for turmas in turma:
         turma.questoes = Questao.objects.filter(turma=turma)
