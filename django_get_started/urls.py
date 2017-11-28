@@ -22,8 +22,8 @@ urlpatterns = [
 
     url(r'^questao_form.html/(?P<sigla>[A-Z,a-z]+)/questao/(?P<questao_id>[0-9]*)', questao_form , name="questao_form"),
 
-    url(r'^cursos.html/([A-Z,a-z]+)',cursos)
-    url(r'^sair/', logout , {'next_page': '/index.html'}), 
+    url(r'^cursos.html/([A-Z,a-z]+)',cursos),
+    url(r'^sair/', logout , {'next_page': '/index.html'})
     
 ]
 
