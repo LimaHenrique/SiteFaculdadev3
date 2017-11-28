@@ -1,5 +1,4 @@
-@charset "UTF-8";
-#acesso {
+    #acesso {
         display: flex; }
     label {
         color: #fff; padding: 0 50px; display: flex; }
@@ -14,13 +13,13 @@
         color: #000; }
     p {
         font-size: 20px;
-        color: black;
+        color: silver;
         font-family: Verdana, Arial, sans-serif; }
     a {
         text-decoration: none;
         font-size: 30px;
         font-family: Corbel, Arial, sans-serif;
-        color: black; }
+        color: silver; }
     a:hover {
         font-size: 35px;
         color: #fff; }
@@ -43,12 +42,18 @@
         background-color: #fff;
         color: #000;
         transition: 2px; }
+    footer {
+        text-decoration: none; 
+        background-color: black;
+        color: silver;
+        width: 100%;
+        height: 450px; } 
 
     #menu {
-        padding: 200px; }
+        padding: 0 200px; }
     #menu ul {
         list-style: none;
-        margin=left: 50px;
+        margin: 0;
         padding: 0 100px;
         display: flex;
         border: 15px solid none;
@@ -82,9 +87,9 @@
         float: inherit; }
 
     #login {
-        padding: 230px;
-        margin-right: 200px;
-        margin-left: 70px; }
+        padding: 0 200px;
+        margin-right: 300px;
+        margin-left: 100px; }
     #login ul {
         list-style: none;
         margin: 0;
@@ -129,11 +134,19 @@
         border: 5px solid silver;
         margin-left: 300px;
         margin-right: 500px; }
-   
+    #link {
+        font-size: 20px;
+        font-family: Corbel, Arial, sans-serif;
+        display: flex;
+        margin: 0 300px; }
+    #link:hover {
+        color: rgb(65, 65, 65);
+        font-size: 30px; }
     #opcoes {
         width: 15px;
-        margin-left: 250px;  }#dados {
-        margin-left: 250px;
+        margin-left: 250px;  }
+    #dados {
+            margin-left: 250px;
             display: inline-block; }
     select {
         margin-left: 50px;
@@ -159,4 +172,4 @@
             background-color: #fff;
         }
     #enviar {
-        margin-left: 320px; }
+        margin-left: 300px; }
