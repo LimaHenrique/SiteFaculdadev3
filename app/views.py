@@ -25,7 +25,7 @@ def contato(request):
     emailOrigem = EMAIL_HOST_USER
 
     #send_mail(assunto, mensagem, emailOrigem, emailDestino, fail_silently=True)
-    send_mail(assunto, mensagem, emailOrigem , [email], fail_silently=True)
+    send_mail(assunto, mensagem, emailOrigem , [email])
     
     context = { "contato" : form }
     return render(request, "contato.html" , context)
